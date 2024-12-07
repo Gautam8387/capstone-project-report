@@ -63,6 +63,8 @@
 \newcommand{\faculty}[1]{\def\@faculty{#1}}%
 \newcommand{\degree}[1]{\def\@degree{#1}}%
 \newcommand{\vorsitz}[1]{\def\@vorsitz{#1}}%
+\newcommand{\vorsitzz}[1]{\def\@vorsitzz{#1}}%
+\newcommand{\vorsitzzz}[1]{\def\@vorsitzzz{#1}}%
 \newcommand{\erstpruef}[1]{\def\@erstpruef{#1}}%
 
 \newif\ifzweitpruefaffil
@@ -101,7 +103,7 @@
 \def\@titlepagebindingcor{0mm}
 \RequirePackage{calc}%
 
-\def\TUMLogoWidth{19mm}
+\def\TUMLogoWidth{20mm}
 
 % Left and right margins are exactly the same.
 \def\defaultwidth{150mm}%
@@ -109,9 +111,9 @@
 
 % Vertical positions of title page entities
 \def\titlevpos{100.2mm}%
-\def\informationvpos{147mm}%
-\def\examinervpos{196.5mm}%
-\def\datevpos{241mm}%
+\def\informationvpos{130mm}%
+\def\examinervpos{185mm}%
+\def\datevpos{255mm}%
 
 % --- Robustify
 % clear textpos box
@@ -130,7 +132,7 @@
     pdfstartview = {FitH},       % fits the width of the page to the window
     pdftitle     = {\@title},    % title
     pdfauthor    = {\@author},   % author
-    pdfsubject   = {PhD Thesis}, % subject of the document
+    pdfsubject   = {ASP Thesis}, % subject of the document
     pdfcreator   = {\@author},   % creator of the document
     pdfnewwindow = true,         % links in new window
   }}{}%
@@ -179,21 +181,21 @@
     % FAK text
     %                         See TUM CD Handbook page 16
     %                         x    + x    + 0.5x
-    \begin{textblock*}{120mm}(10mm + 10mm + 5mm + \@titlepagebindingcor, 13.78mm)
-        \footnotesize
-        \fontfamily{phv}\selectfont
-        \noindent \textcolor{TUMBlue}{
-          {\@faculty}
-        }\\
-        \fontfamily{phv}\selectfont
-        \textcolor{TUMBlue}{
-          Technische Universit\"at M\"unchen
-        }
-    \end{textblock*}
+    % \begin{textblock*}{120mm}(5mm + 5mm + 5mm + \@titlepagebindingcor, 5mm)
+    %     \footnotesize
+    %     \fontfamily{phv}\selectfont
+    %     \noindent \textcolor{TUMBlue}{
+    %       {\@faculty}
+    %     }\\
+    %     \fontfamily{phv}\selectfont
+    %     \textcolor{TUMBlue}{
+    %       Ashoka University
+    %     }
+    % \end{textblock*}
 
     % TUM logo
-    \begin{textblock*}{\TUMLogoWidth}(\paperwidth - \TUMLogoWidth - 10mm, 10mm)
-        \noindent \includegraphics[height = 10mm]{TUM.pdf}
+    \begin{textblock*}{\TUMLogoWidth}(\paperwidth - \TUMLogoWidth - 20mm, 10mm)
+        \noindent \includegraphics[height = 25mm]{ahs-logo.pdf}
     \end{textblock*}
 
 
@@ -207,29 +209,26 @@
         \ifdefempty{\@subtitle}{}{\vspace{1ex}\bfseries\large \@subtitle}
 
         \vspace{10mm}
-
+        
         {\bfseries \large \@author}\\
 
     \end{textblock*}
 
 
-
     % Informationstext
     \begin{textblock*}{\defaultwidth}(\defaulthpos, \informationvpos)
         \centering
-        \raggedright
-
-        Vollst\"andiger Abdruck der von der {\@faculty} der Technischen
-        Universit\"at M\"unchen zur Erlangung des akademischen Grades eines\\
+        Capstone Project Report submitted to the {\@faculty}\\
+        for the fullfillment of the requirements of the degree of 
 
         \vspace{6mm}
 
-        \centering {\bfseries \large {\@degree}}\\
+        \centering {\bfseries \large {\@degree}}
 
         \vspace{6mm}
-        \raggedright
-
-        genehmigten Dissertation.\\
+        
+        \centering
+        in Computer Scinece at Ashoka University
 
     \end{textblock*}
 
@@ -240,12 +239,14 @@
         \centering
         \raggedright
 
-        \textbf{Vorsitzender:}\\
-        \hspace{8mm}\hphantom{1. }\@vorsitz
+        \textbf{Supervisor:}\\
+        \hspace{8mm}1. \@vorsitz\\
+        \hspace{8mm}2. \@vorsitzz\\
+        \hspace{8mm}3. \@vorsitzzz\\
 
         \vspace{2mm}
 
-        \textbf{Pr\"ufende der Dissertation:}\\
+        \textbf{Project Assessment Committee:}\\
         \hspace{8mm}1. \@erstpruef\\
         \hspace{8mm}2. \@zweitpruef
         \ifzweitpruefaffil
@@ -266,12 +267,7 @@
     \begin{textblock*}{\defaultwidth}(\defaulthpos, \datevpos)
         \raggedright
 
-        Die Dissertation wurde am {\@date} bei der Technischen Universit\"at
-        M\"unchen eingereicht und durch die {\@faculty}
-        \ifdateaccepted
-          am {\@dateaccepted }
-        \fi
-        angenommen.
+        The capstone project report was submitted to the Ashoka University on December 08, 2024 and accepted by the {\@faculty} on December 08, 2024.
 
     \end{textblock*}
 
