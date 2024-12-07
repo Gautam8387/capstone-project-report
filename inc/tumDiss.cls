@@ -176,7 +176,7 @@
 
     % Logos
     % FAK logo
-    \input{inc/fak_placement.tex}
+    \input{inc/ashoka_placement.tex}
 
     % FAK text
     %                         See TUM CD Handbook page 16
@@ -205,12 +205,13 @@
     \begin{textblock*}{\defaultwidth}[0,1](\defaulthpos, \titlevpos)
         \centering
 
-        {\bfseries \Large \textcolor{TUMBlue} \@title}
+        {\bfseries \Large \textcolor{TUMRedDarkest} \@title}
         \ifdefempty{\@subtitle}{}{\vspace{1ex}\bfseries\large \@subtitle}
 
         \vspace{10mm}
         
-        {\bfseries \large \@author}\\
+        % {\bfseries \large \@author}\\
+        {\bfseries \large \textcolor{TUMBlue}{\@author}}\\
 
     \end{textblock*}
 
@@ -223,12 +224,12 @@
 
         \vspace{6mm}
 
-        \centering {\bfseries \large {\@degree}}
+        \centering {\bfseries \large \textcolor{TUMRed}{\@degree}}
 
         \vspace{6mm}
         
         \centering
-        in Computer Scinece at Ashoka University
+        in \textcolor{TUMBlueDarker}{Computer Scinece} at Ashoka University
 
     \end{textblock*}
 
