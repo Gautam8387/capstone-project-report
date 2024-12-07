@@ -306,28 +306,17 @@
 
 %-------------------------------------------------------------------------------
 \chapter{Acknowledgement}
-\lipsum[1]
+\input{src/acknowledgement.tex}
 
 
 %-------------------------------------------------------------------------------
 \chapter{Certificate}
-\lipsum[1]
-
+\input{src/certificate.tex}
 
 
 %-------------------------------------------------------------------------------
 \chapter{Abstract}
-
-% \lipsum[1-4]
-% This is sample text with a citation \cite{barham2003xen}. Multiple citations \cite{barham2003xen,LIS} can be combined.
 \input{src/abstract.tex}
-
-
-%-------------------------------------------------------------------------------
-% \chapter{Zusammenfassung}
-
-% \lipsum[1-4]
-
 
 
 %-------------------------------------------------------------------------------
@@ -337,41 +326,41 @@
 \printglossary[type=\acronymtype, nonumberlist]
 
 
-
 %-------------------------------------------------------------------------------
 \mainmatter
 \chapter{Introduction}
 \label{chap:introduction}
+\input{src/introduction.tex}
 
-\lipsum[1-4]
 
-
+%-------------------------------------------------------------------------------
 \chapter{Background and Motivation}
 \label{chap:bcgmot}
-\lipsum[1-4]
+\input{src/bcgmot.tex}
 
 
+%-------------------------------------------------------------------------------
 \chapter{Literature Survey (State of the Art)}
 \label{chap:sota}
-
-Example citations~\cite{barham2003xen, LIS}.
-Example acronym usage \gls{osllm}.
+\input{src/sota.tex}
 
 
+%-------------------------------------------------------------------------------
 \chapter{Content}
 \label{chap:content}
 \input{src/content.tex}
 
 
+%-------------------------------------------------------------------------------
 \chapter{Results \& Discussions}
-\label{chap:conclusion}
-\lipsum[1-4]
+\label{chap:results}
+\input{src/results.tex}
 
 
+%-------------------------------------------------------------------------------
 \chapter{Conclusion \& Future Work}
 \label{chap:conclusion}
-\lipsum[1-4]
-
+\input{src/conclusion.tex}
 
 
 %-------------------------------------------------------------------------------
@@ -384,14 +373,15 @@ Example acronym usage \gls{osllm}.
 \bibliography{src/bibliography}
 
 
-
 %-------------------------------------------------------------------------------
 % Appendix
 %-------------------------------------------------------------------------------
 \appendix
 \chapter{Appendix}
+\input{src/appendix.tex}
 
-\lipsum[1-4]
+
+%-------------------------------------------------------------------------------
 
 \end{document}
 
