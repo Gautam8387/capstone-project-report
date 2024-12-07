@@ -52,3 +52,8 @@ placeholder-local:
 	cp inc/placeholder_FAK.pdf inc/FAK.pdf
 	cp inc/placeholder_TUM.pdf inc/TUM.pdf
 	cp inc/fak_placement/fak_placement_quadratic.tex inc/fak_placement.tex
+
+placeholder-clean:
+	mv inc/FAK.pdf inc/placeholder_FAK.pdf
+	mv inc/TUM.pdf inc/placeholder_TUM.pdf
+	rm -rf inc/fak_placement.tex
