@@ -1,0 +1,62 @@
+\section{Literature Survey}
+\subsection{A brief history of the field}
+\lettrine{T}{ }he field of diagnostic reasoning in medicine became an early focus of AI, demonstrating that AI methods could approximate human performance in tasks requiring extensive domain knowledge. Early systems were designed to model human cognition explicitly, prioritizing interpretability over mere optimization of accuracy. Such systems were particularly adept at explaining their reasoning, contrasting with modern AI systems optimized solely for prediction accuracy, often at the cost of transparency \cite{cohen2022introducing}.\\[\baselineskip]
+
+\noindent One of the landmark systems in this domain was \textcolor{TUMRed}{\textbf{MYCIN}}, introduced in the 1970s \cite{cohen2022intelligent, shortliffe2012computer, shortliffe1975model}. MYCIN was developed to assist physicians in selecting appropriate antimicrobial therapies for severe infections. Its key components included:
+\begin{itemize}
+    \item \textcolor{TUMRed}{\textbf{Consultation Program}}: Acquired patient data and provided treatment recommendations.
+    \item \textcolor{TUMRed}{\textbf{Explanation Program}}: Generated English-language explanations, detailing why certain questions were asked and how conclusions were reached.
+\end{itemize}
+
+\noindent MYCIN's knowledge of infectious diseases was represented as production rules—conditional statements linking observations to inferred outcomes. It introduced backward chaining, a reasoning strategy that began with a hypothesis and worked backward to validate it using available evidence. This allowed MYCIN to answer "WHY" questions, making its decision-making process interpretable and user-friendly \cite{shortliffe1975model, musen2021clinical}.\\[\baselineskip]
+
+\noindent Before MYCIN, the Leeds Abdominal Pain System, developed in the late 1960s, marked another early attempt at diagnostic reasoning. F. T. de Dombal and his colleagues at the University of Leeds created decision aids for diagnosing abdominal pain based on Bayesian probability theory. This work laid the foundation for probabilistic reasoning in medical decision-making \cite{musen2021clinical}.\\[\baselineskip]
+
+\noindent The initial wave of AI-driven diagnostic systems emphasized the trade-off between accuracy and interpretability, often prioritizing the latter. Over time, the focus shifted to integrating AI into a larger system involving human decision-makers, aiming to improve the quality, efficiency, and safety of clinical practice.
+
+\subsection{The Era of Knowledge-Based Systems (KBS)}
+\lettrine{F}{ }ollowing systems like MYCIN and the Leeds Abdominal Pain System, the next phase of AI in healthcare saw the rise of Knowledge-Based Systems (KBS). These systems sought to replicate human reasoning in complex medical scenarios by formalizing knowledge into computational representations. The core ideas of KBS were:
+\begin{enumerate}
+    \item \textcolor{TUMRed}{\textbf{Representing knowledge using}}:
+    \begin{itemize}
+        \item Formal methods: Mathematical frameworks for precise reasoning.
+        \item Ontological commitments: Hierarchies of concepts organized logically.
+        \item Fragmentary theories of reasoning: Integrating logic, psychology, biology, statistics, and economics.
+    \end{itemize}
+    \item \textcolor{TUMRed}{\textbf{Ensuring}} that representations were computationally efficient and intuitive for human practitioners to understand and modify.
+\end{enumerate}
+\noindent Prominent approaches to knowledge representation included Rules and Patterns—Logical or heuristic rules for decision-making. Probabilistic Models—Methods like Naive Bayes, Bayesian Networks, and Influence Diagrams. Causal Mechanisms—Explaining outcomes through cause-and-effect relationships. Fuzzy Logic—Handling uncertainty and imprecision in medical reasoning.\\[\baselineskip]
+\noindent The success of KBS depended on robust methods for acquiring and organizing medical knowledge. Techniques included:
+\begin{itemize}
+    \item \textcolor{TUMRed}{\textbf{Taxonomic Ontologies}}: Organizing concepts into hierarchical structures, specifying their super- and sub-categories.
+    \item \textcolor{TUMRed}{\textbf{Knowledge Graphs}}: Capturing relationships between concepts for intuitive reasoning.
+    \item \textcolor{TUMRed}{\textbf{Textual Co-occurrence Analysis}}: Identifying relationships from sentences, paragraphs, or articles.
+    \item \textcolor{TUMRed}{\textbf{Unified Medical Language Systems (UMLS)}}: Leveraging the Metathesaurus to bridge semantic gaps without constructing exhaustive ontologies.
+    \item \textcolor{TUMRed}{\textbf{Triple-Based Models}}: Representing knowledge as ([concept] - [relation] - [concept]) triples, enabling systems to address "which," "why," and "does" questions \cite{demner2009can}.
+\end{itemize}
+\noindent Some other methods included conception and prototypical design of a decision-support server \cite{eich1999internet}. These methods were observed to have a significant impact on user-friendliness and performance of the system.
+\section{State of the Art}
+\lettrine{T}{ }he evolution of AI technologies in healthcare has driven a shift toward more dialogue-based approaches, taking advantage of intelligent agents to facilitate interactive conversations. are designed to interact with humans using dialog systems, which are computational frameworks for managing dialog. The development of such technologies is particularly critical in healthcare, where the delivery of complex information must be accessible. These systems can play a transformative role for individuals with low health literacy or limited familiarity with technology, helping them navigate complex medical advice and treatment options effectively \cite{cohen2022intelligent}.\\[\baselineskip]
+
+\noindent Recent advancements in conversational LLMs like GPT-4 have demonstrated remarkable capabilities in reasoning, planning, and using contextual information. While GPT-4 is trained on vast amounts of text data, and primarly developed for general domain, it lacks the specialized medical knowledge required for clinical decision-making. Clinical data tends to be proprietary, sensitive, and subject to strict privacy regulations, making it challenging to access and use for training AI models. Because of the interactive nature of the system, the user can request more detail regarding the response by asking follow-up questions or asking for more concise responses in order to get “to the point” more rapidly \cite{lee2023benefits}.\\[\baselineskip]
+
+
+\noindent On the other hand, systems like Google AMIE: A research AI system for diagnostic medical reasoning and conversations \cite{karthikesalingam2024amie} represent a new generation of AI tailored specifically for medical diagnostics and reasoning. Google AMIE is a research-focused AI designed to:
+\begin{itemize}
+    \item \textcolor{TUMRed}{\textbf{Perform Diagnostic Medical Reasoning}}: Simulating primary care physician (PCP) consultations and Objective Structured Clinical Examinations (OSCE).
+    \item \textcolor{TUMRed}{\textbf{Modular Architecture}}: AMIE utilizes a stage and agents-based architecture, allowing for easy integration of new modules and agents.
+\end{itemize}
+\noindent A notable emerging trend also being observed where graphs-based models and graph representation learning \cite{johnson2024graph} is being used in medicine to manage and analyze the vast, multimodal datasets generated in healthcare. Graph-based models are particularly well-suited for capturing complex relationships between entities, such as diseases, symptoms, treatments, and patient demographics. 
+
+\section{Gap Analysis}
+
+\lettrine{A}{ } significant limitation of current approaches is their black-box nature and full autonomy in diagnostic decisions \cite{clusmann2023future}. There is a pressing need for auditable and traceable systems where AI assists rather than replaces clinical decision-making \cite{cohen2022intelligent}. The ideal solution should provide explainable recommendations while keeping diagnostic control firmly in the hands of healthcare professionals, ensuring accountability and maintaining the critical role of human expertise in patient care as explained by the three pillars in the Figure \ref{fig:explainable_AIM} \cite{explainableAIM}. This is particularly important in specialized medical departments where standardized protocols and human oversight are essential for patient safety \cite{cohen2022intelligent}.\\[\baselineskip]
+
+\noindent While recent advancements in LLMs have shown impressive capabilities in medical domains, there remains a critical gap in \textcolor{TUMRed}{\textbf{department-specific}} Clinical Decision Support Systems. Current general-purpose AI systems lack the specialized knowledge and protocols required for specific medical departments, potentially leading to misinformation and compromised patient care. Additionally, most existing systems operate as standalone solutions rather than taking a system-level perspective that considers integration with existing clinical workflows and protocols, incorporating both \textcolor{TUMRed}{\textbf{rule-based}} and \textcolor{TUMRed}{\textbf{data-driven}} approaches while also ensuring \textcolor{TUMRed}{\textbf{explainability}} and \textcolor{TUMRed}{\textbf{transparency}} in decision-making.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.1]{images/explainable_AIM.png}
+    \caption{Three pillars of explainable AI}
+    \label{fig:explainable_AIM}
+\end{figure}

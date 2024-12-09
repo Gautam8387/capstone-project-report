@@ -34,7 +34,7 @@
 
 \subsection{Clinical Decision Support Systems (CDSS)}
 \textcolor{TUMBlue}{\textbf{Clinical Decision Support (CDS)}}\\
-\noindent Clinical Decision Support (CDS) refers to a broad set of tools, systems, and interventions aimed at enhancing clinical decision-making. By providing clinicians, healthcare workers, and patients with \textcolor{TUMRed}{\textbf{situation-specific knowledge}}, CDS supports a range of critical healthcare activities such as diagnosis, risk assessment, prognosis, and treatment selection \cite{osheroff2007roadmap}. This support can be delivered through various mediums, including reference guidelines, alerts, and evidence-based recommendations.\\[\baselineskip]
+\noindent \lettrine{C}{ }linical Decision Support (CDS) refers to a broad set of tools, systems, and interventions aimed at enhancing clinical decision-making. By providing clinicians, healthcare workers, and patients with \textcolor{TUMRed}{\textbf{situation-specific knowledge}}, CDS supports a range of critical healthcare activities such as diagnosis, risk assessment, prognosis, and treatment selection \cite{osheroff2007roadmap}. This support can be delivered through various mediums, including reference guidelines, alerts, and evidence-based recommendations.\\[\baselineskip]
 
 \noindent The goal of CDS is to \textcolor{TUMRed}{\textbf{bridge the gap between clinical knowledge and patient care}}. As medical knowledge expands and healthcare systems become more data-driven, CDS ensures that healthcare providers have access to timely and relevant information. This, in turn, enables more efficient and informed decision-making.\\[\baselineskip]
 
@@ -100,7 +100,7 @@ As per \cite{visweswaran2022integration} CDSS can be broadly classified into two
 
 \noindent Accurate interpretation of human language---especially spoken language---is one of the most critical factors that influence the success of \textcolor{TUMRed}{\textbf{human-computer interaction}}. To achieve a \textcolor{TUMRed}{\textbf{linguistic-agnostic system}}, a large, diverse dataset is required to capture regional, phonetic, and dialectal variations in speech.\\[\baselineskip]
 
-\noindent Conversational agents, also known as \textcolor{TUMRed}{\textbf{chatbots}}, have a long history in healthcare, dating back to the development of ELIZA. One of the first medical chatbots was developed by Joseph Weizenbaum in the mid-1960s at the Massachusetts Institute of Technology (MIT) \cite{haug2023artificial, weizenbaum1966eliza}. Although ELIZA operated on simple pattern-matching rules, it demonstrated the potential of conversational agents to simulate human interaction.\\[\baselineskip]
+\noindent Conversational agents, also known as \textcolor{TUMRed}{\textbf{chatbots}}, have a long history in healthcare, dating back to the development of ELIZA. Joseph Weizenbaum developed one of the first medical chatbots in the mid-1960s at the Massachusetts Institute of Technology (MIT) \cite{haug2023artificial, weizenbaum1966eliza}. Although ELIZA operated on simple pattern-matching rules, it demonstrated the potential of conversational agents to simulate human interaction.\\[\baselineskip]
 
 \noindent Since then, NLP has progressed to the current state of Large Language Models (LLMs) are advanced \textcolor{TUMRed}{\textbf{AI models}} specifically trained to process, understand, and generate text. One of the popular ways is how LLMs are used as conversational agents. Since the release of ChatGPT, numerous LLMs---both open-source and proprietary---have been developed at unprecedented speed \cite{clusmann2023future}. 
 
@@ -129,7 +129,7 @@ As per \cite{visweswaran2022integration} CDSS can be broadly classified into two
 
 \noindent The Routine Gastroenterology OPD operates from Monday to Friday, 8:30 a.m. to 1:00 p.m. \cite{AIIMSOPD}. Given this limited time frame of 270 minutes daily over 5 working days, approximately \textcolor{TUMRed}{\textbf{8,500 new cases are handled per day}}, with multiple physicians addressing various chief complaints.\\[\baselineskip]
 
-\noindent As discussed in Section \ref{sec:abdominal_pain}, one of the most diagnostically challenging chief complaints is \textcolor{TUMRed}{\textbf{abdominal pain}}. A complete protocol of structured questions helps filter the probable diagnosis and the organ of origin. However, the high influx of patients leaves little room for physicians to conduct comprehensive questionnaire-based evaluations before physical examinations. Consequently, many patients do not undergo the complete protocol, thereby increasing the cognitive burden on physicians and increasing the risk of diagnostic errors.\\[\baselineskip]
+\noindent As discussed in Section \ref{sec:abdominal_pain}, one of the most diagnostically challenging chief complaints is \textcolor{TUMRed}{\textbf{abdominal pain}}. A complete protocol of structured questions helps filter the probable diagnosis and the organ of origin. However, the high influx of patients leaves little room for physicians to conduct comprehensive questionnaire-based evaluations before physical examinations. Consequently, many patients do not undergo the complete protocol, increasing the cognitive burden on physicians and the risk of diagnostic errors.\\[\baselineskip]
 
 \noindent This challenge forms the motivation for the development of a Clinical Decision Support System (CDSS). The CDSS aims to streamline the process of collecting responses to structured questionnaires and assist physicians in formulating probable diagnoses and identifying the organ of origin before physical examination.\\[\baselineskip]
 
@@ -146,7 +146,7 @@ As per \cite{visweswaran2022integration} CDSS can be broadly classified into two
 \end{figure}
 
 \subsection{Source of Data}
-Another significant motivation is the \textcolor{TUMRed}{\textbf{collection of diverse voice-based data}} from patients. AIIMS serves as a \textcolor{TUMRed}{\textbf{melting pot for linguistically diverse populations}} from across India. This is reflected in the geographical distribution of inpatients at AIIMS during the year 2021-2022, as shown in the pie chart below \ref{fig:inpatient_distribution} \cite{AIIMS2024}.\\[\baselineskip]
+\lettrine{A}{ }nother significant motivation is the \textcolor{TUMRed}{\textbf{collection of diverse voice-based data}} from patients. AIIMS serves as a \textcolor{TUMRed}{\textbf{melting pot for linguistically diverse populations}} from across India. This is reflected in the geographical distribution of inpatients at AIIMS during the year 2021-2022, as shown in the pie chart below \ref{fig:inpatient_distribution} \cite{AIIMS2024}.\\[\baselineskip]
 
 % Insert the image for the above data
 \begin{figure}[h]
@@ -159,6 +159,6 @@ Another significant motivation is the \textcolor{TUMRed}{\textbf{collection of d
 \noindent This diversity in linguistic backgrounds presents a unique opportunity to collect and analyze \textcolor{TUMRed}{\textbf{voice-based data}} from patients. Such data can be used to develop \textcolor{TUMRed}{\textbf{robust linguistic-agnostic conversational models}} for the Indian population. A linguistic-agnostic system can recognize and process multiple accents, regional pronunciations, and dialectical variations. Including these better and more robust models will increase patient care and inclusivity.
 
 \subsection{Broader Impact}
-The broader impact of this system extends beyond the Department of Gastroenterology. It addresses several challenges posed by general-purpose large language models (LLMs) such as ChatGPT, which are not well-suited for department-specific protocols \cite{clusmann2023future}. The issues are discussed in detail in the Literature Review section.\\[\baselineskip]
+\lettrine{T}{ }he broader impact of this system extends beyond the Department of Gastroenterology. It addresses several challenges posed by general-purpose large language models (LLMs) such as ChatGPT, which are not well-suited for department-specific protocols \cite{clusmann2023future}. The issues are discussed in detail in the Literature Review section.\\[\baselineskip]
 
 \noindent Given these limitations, the proposed approach can be extended to other departments and target chief complaints other than abdominal pain. This would allow the development of multiple CDSS subsystems for various medical specialties. These subsystems can work in coordination, forming a broader, integrated, AI-assisted healthcare ecosystem.\\[\baselineskip]
