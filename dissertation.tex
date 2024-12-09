@@ -25,6 +25,8 @@
 
 \usepackage[left=30mm,right=30mm,top=30mm,bottom=30mm]{geometry}
 \usepackage{fancyhdr}
+\usepackage{mdframed}
+\usepackage{lettrine}
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
@@ -99,7 +101,7 @@
 % \zweitpruef{Prof. Dr.-Ing. Vorname Nachname}
 
 % Or this one for an external professor
-\zweitpruef[AIIMS, New Delhi]{Dr. external}
+\zweitpruef[AIIMS, New Delhi]{Dr. Ayush Agarwal, Department of Gastroenterology and Human Nutrition}
 
 % Optionally, add a third examiner
 %\drittpruef[RWTH Aachen]{Prof. Dr.-Ing. Max Mustermann}
@@ -294,6 +296,18 @@
 \newacronym{cdss}{CDSS}{Clinical Decision Support System}
 \glsadd{cdss}
 
+\newacronym{cds}{CDS}{Clinical Decision Support}
+\glsadd{cds}
+
+\newacronym{aim}{AIM}{Artificial Intelligence in Medicine}
+\glsadd{aim}
+
+\newacronym{opd}{OPD}{Outpatient Department}
+\glsadd{opd}
+
+\newacronym{aiims}{AIIMS}{All India Institute of Medical Sciences}
+\glsadd{aiims}
+
 
 
 %-------------------------------------------------------------------------------
@@ -305,7 +319,7 @@
 
 
 %-------------------------------------------------------------------------------
-\chapter{Acknowledgement}
+\chapter{Acknowledgment}
 \input{src/acknowledgement.tex}
 
 
@@ -315,8 +329,8 @@
 
 
 %-------------------------------------------------------------------------------
-\chapter{Abstract}
-\input{src/abstract.tex}
+% \chapter{Abstract}
+% \input{src/abstract.tex}
 
 
 %-------------------------------------------------------------------------------

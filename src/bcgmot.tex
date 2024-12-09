@@ -1,1 +1,164 @@
-\lipsum[1-4]
+\section{Background}
+\subsection{Evaluation of Abdominal Pain}
+\label{sec:abdominal_pain}
+\lettrine{A}{ }bdominal pain is one of the most common and diagnostically challenging chief complaints encountered in clinical practice \cite{gans2015guideline}. This serves as a symptom of a wide range of underlying conditions, encompassing both gastrointestinal and non-gastrointestinal issues. This wide range of potential causes increases diagnostic complexity, requiring a systematic and comprehensive evaluation process.\\[\baselineskip]
+
+\noindent The assessment of abdominal pain typically follows a structured framework that incorporates multiple clinical dimensions. These dimensions provide crucial clues that aid in narrowing down possible diagnoses. The key aspects considered during an evaluation include:
+\begin{itemize}
+    \item \textcolor{TUMRed}{\textbf{Location of Pain}}: The abdomen is anatomically divided into nine regions (as shown in Figure \ref{fig:abdominal_regions} (A) below) --- epigastric, umbilical, hypogastric, bilateral hypochondriac, bilateral lumbar, and bilateral iliac regions \cite{AbExm}. The specific region where pain is reported often serves as an essential diagnostic clue \cite{gans2015guideline}.
+    \item \textcolor{TUMRed}{\textbf{Presence of Danger Signs}}: Symptoms like lightheadedness, altered sensorium, and respiratory distress may signal critical underlying conditions requiring immediate attention.
+    \item \textcolor{TUMRed}{\textbf{Severity of Pain}}: Pain intensity (1-10) is subjectively reported by the patient but often correlates with the urgency of the clinical situation.
+    \item \textcolor{TUMRed}{\textbf{Onset of Pain}}: The onset of pain, whether acute or gradual (insidious).
+    \item \textcolor{TUMRed}{\textbf{Character of Pain}}: Pain can be classified as burning, stabbing, pin-pricking, constricting, throbbing, dull aching, or non-specific. Each pain type is linked to a distinct set of possible diagnoses.
+    \item \textcolor{TUMRed}{\textbf{Duration of Pain}}: Short, self-limiting pain or prolonged or recurring pain.
+    \item \textcolor{TUMRed}{\textbf{Radiation of Pain}}: The direction of pain radiation (to the back, shoulder, groin/inner thigh, arms, or neck) provides vital diagnostic insight.
+    \item \textcolor{TUMRed}{\textbf{Aggravating Factors}}: Activities, such as eating, bending forward or sideways, passing stool, passing urine, menstruation, deep inspiration, or walking and exercise, can exacerbate abdominal pain.
+    \item \textcolor{TUMRed}{\textbf{Associated Symptoms}}: Symptoms like fever, nausea, vomiting, constipation, diarrhea, jaundice, and changes in bowel habits serve as crucial diagnostic adjuncts. Additionally, systemic symptoms like weight loss, loss of appetite, and signs of anxiety or depression may signal specific gastrointestinal disorders.
+    \item \textcolor{TUMRed}{\textbf{Comorbidities}}: Chronic illnesses such as diabetes, cardiovascular disease, kidney disease, or a history of gallstones can affect abdominal pain etiology.
+    \item \textcolor{TUMRed}{\textbf{Surgical History}}: Prior surgical procedures on the gallbladder, intestines, kidneys, or uterus.
+    \item \textcolor{TUMRed}{\textbf{Gender-Specific Considerations}}: Conditions related to the reproductive system, such as abnormal vaginal bleeding, menstrual irregularities, and foul discharge, play a role in the evaluation of abdominal pain, particularly in female patients.
+\end{itemize}
+\noindent The process of evaluating abdominal pain typically begins with patient history-taking to collect information on the above-mentioned aspects. This is followed by a physical examination, as shown in Figure \ref{fig:abdominal_regions} (B) below, where physicians use visual inspection and hands-on techniques such as palpation, percussion, and auscultation. The examination is often performed with the patient in a supine position with bent knees to relax the abdominal muscles and facilitate assessment \cite{AbExm, cartwright2008evaluation}.\\[\baselineskip]
+
+\noindent If the initial evaluation does not provide sufficient diagnostic clarity, physicians may order laboratory tests (e.g., blood work, urine analysis) or imaging studies (e.g., ultrasound, X-ray, or CT scan) to gather further evidence. Based on the collective information from history, physical examination, and diagnostic tests, physicians generate a differential diagnosis --- a list of possible conditions that could explain the symptoms. This process continues until the most probable diagnosis is reached \cite{ddCleveland}.\\[\baselineskip]
+
+\noindent The CDSS developed as part of this thesis aims to streamline the information-gathering phase of abdominal pain evaluation. By integrating a linguistically-agnostic, text-based conversational agent, the system collects essential patient information regarding the dimensions mentioned earlier to identify a probable diagnosis and organ of origin using a deterministic approach. The final decision and subsequent physical examination remain under the physician's control.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.1]{images/abdominal_regions_exam.png}
+    \caption{Evaluation of Abdominal Pain}
+    \label{fig:abdominal_regions}
+\end{figure}
+
+
+\subsection{Clinical Decision Support Systems (CDSS)}
+\textcolor{TUMBlue}{\textbf{Clinical Decision Support (CDS)}}\\
+\noindent Clinical Decision Support (CDS) refers to a broad set of tools, systems, and interventions aimed at enhancing clinical decision-making. By providing clinicians, healthcare workers, and patients with \textcolor{TUMRed}{\textbf{situation-specific knowledge}}, CDS supports a range of critical healthcare activities such as diagnosis, risk assessment, prognosis, and treatment selection \cite{osheroff2007roadmap}. This support can be delivered through various mediums, including reference guidelines, alerts, and evidence-based recommendations.\\[\baselineskip]
+
+\noindent The goal of CDS is to \textcolor{TUMRed}{\textbf{bridge the gap between clinical knowledge and patient care}}. As medical knowledge expands and healthcare systems become more data-driven, CDS ensures that healthcare providers have access to timely and relevant information. This, in turn, enables more efficient and informed decision-making.\\[\baselineskip]
+
+\noindent \textcolor{TUMBlue}{\textbf{Clinical Decision Support System (CDSS)}}\\
+A Clinical Decision Support System (CDSS) is a specialized type of CDS that employs \textcolor{TUMRed}{\textbf{software-based tools}} to directly aid healthcare providers in making clinical decisions. Unlike general CDS, which may include static guidelines or references, CDSS is dynamic, \textcolor{TUMRed}{\textbf{patient-specific}}, and interactive. By integrating patient-specific information with a computerized knowledge base, CDSS generates recommendations, alerts, and assessments that assist clinicians in diagnosis, treatment, and care planning \cite{hunt1998effects}.
+
+\begin{mdframed}[backgroundcolor=black!10]
+    \centering
+    \textit{“Any software designed to aid in clinical decision-making by matching patient characteristics to a computerized knowledge base to generate tailored patient-specific assessments or recommendations”}\\
+    \flushright
+    -  Hunt et al. \cite{hunt1998effects}
+\end{mdframed}
+
+\noindent Unlike fully autonomous AI models, CDSS systems are designed to work \textcolor{TUMRed}{\textbf{in collaboration with healthcare professionals}}, offering them interpretive insights and enabling human oversight.\\[\baselineskip]
+
+\noindent Effective clinical decision-making requires a clinician to have:
+\begin{itemize}
+    \item Up-to-date Medical Knowledge
+    \item Access to Accurate and Complete Patient Data
+    \item Good Decision-Making Skills
+\end{itemize}
+\noindent However, clinicians face several significant challenges in meeting these requirements. Some of the prominent challenges include:
+\begin{itemize}
+    \item Exponential Growth of Medical Knowledge
+    \item Rapid Accumulation of Patient Data
+    \item Increased Complexity in Clinical Inference
+    \item Clinical Data Capture and Documentation Burden
+\end{itemize}
+
+\noindent Given the challenges and the rapid advancements in health makes it impossible for a clinician to remember and apply them in clinical care without some form of assistance, thus the role of Clinical Decision Support Systems (CDSS) becomes essential in modern healthcare \cite{visweswaran2022integration}. With the adoption of Artificial Intelligence in Medicine, existing physicians can handle more cases as systems become more automated \cite{panch2018artificial}.\\[\baselineskip]
+
+\noindent \textcolor{TUMBlue}{\textbf{Types of Clinical Decision Support System (CDSS)}}\\
+As per \cite{visweswaran2022integration} CDSS can be broadly classified into two categories:
+\begin{itemize}
+    \item \textcolor{TUMRed}{\textbf{Knowledge-based CDSS}}: The key components of a knowledge-based AI-CDS system include a knowledge base such as expert-derived rules and an inference mechanism for clinical application such as chained inference for rules.
+    \item \textcolor{TUMRed}{\textbf{Data Derived CDSS}}: The key components of a data-derived AI-CDS include a model, such as a data-derived neural network, and an inference mechanism for clinical application, such as forward propagation in a neural network model..
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.12]{images/cdss.png}
+    \caption{Clinical Decision Support System}
+    \label{fig:abdominal_regions}
+\end{figure}
+
+\subsection{Linguistics and Conversational Agents in Healthcare}
+\lettrine{C}{ }omputational linguistics focuses on \textcolor{TUMRed}{\textbf{modeling human language}} using computational techniques, enabling machines to understand and process human language. The process of language understanding can be broken down into multiple hierarchical levels, each representing a critical step in the language comprehension pipeline \cite{cohen2022intelligent}. These levels, illustrated in Figure \ref{fig:linguistic_levels}, are as follows:
+\begin{itemize}
+    \item \textcolor{TUMRed}{\textbf{Phonology}}: This level focuses on sound patterns in language. One of the most notable linguistic tasks at this level is \textcolor{TUMRed}{\textbf{Automatic Speech Recognition (ASR)}}, also known as speech-to-text, where speech waveforms are converted into textual data. The concept of \textcolor{TUMRed}{\textbf{linguistic-agnostic}} systems relates to the ability of ASR models to understand diverse accents, dialects, and speech variations without being restricted to a particular language or pronunciation. For example, a linguistic-agnostic system can process English spoken by people from different regions (e.g., American, British, and Indian accents) with equal accuracy.
+    \item \textcolor{TUMRed}{\textbf{Morphology}}: Morphology focuses on how words are formed by combining \textcolor{TUMRed}{\textbf{morphemes}}, the smallest units of meaning. For example, in the word "unhappiness," the morphemes are "un-", "happy", and "-ness".
+    \item \textcolor{TUMRed}{\textbf{Syntax}}: Syntax refers to the grammatical structure of language and focuses on how words are arranged in a sentence. It identifies the \textcolor{TUMRed}{\textbf{relationships between words}} and builds a hierarchical representation of the sentence, allowing for proper interpretation
+    \item \textcolor{TUMRed}{\textbf{Semantics}}: Semantics deals with \textcolor{TUMRed}{\textbf{word meanings}} and their relationships within sentences. It enables systems to understand the meaning of words, phrases, and sentences after receiving inputs from the phonology, morphology, and syntax layers
+    \item \textcolor{TUMRed}{\textbf{Pragmatics}}: This layer focuses on how context influences meaning by going beyond the literal meaning of words. 
+    \item \textcolor{TUMRed}{\textbf{Generation}}: While the above layers focus on language understanding, this final layer focuses on \textcolor{TUMRed}{\textbf{realistic language generation}} given a computational representation 
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.1]{images/linguistic_levels.png}
+    \caption{Linguistic Levels}
+    \label{fig:linguistic_levels}
+\end{figure}
+
+\noindent Accurate interpretation of human language---especially spoken language---is one of the most critical factors that influence the success of \textcolor{TUMRed}{\textbf{human-computer interaction}}. To achieve a \textcolor{TUMRed}{\textbf{linguistic-agnostic system}}, a large, diverse dataset is required to capture regional, phonetic, and dialectal variations in speech.\\[\baselineskip]
+
+\noindent Conversational agents, also known as \textcolor{TUMRed}{\textbf{chatbots}}, have a long history in healthcare, dating back to the development of ELIZA. One of the first medical chatbots was developed by Joseph Weizenbaum in the mid-1960s at the Massachusetts Institute of Technology (MIT) \cite{haug2023artificial, weizenbaum1966eliza}. Although ELIZA operated on simple pattern-matching rules, it demonstrated the potential of conversational agents to simulate human interaction.\\[\baselineskip]
+
+\noindent Since then, NLP has progressed to the current state of Large Language Models (LLMs) are advanced \textcolor{TUMRed}{\textbf{AI models}} specifically trained to process, understand, and generate text. One of the popular ways is how LLMs are used as conversational agents. Since the release of ChatGPT, numerous LLMs---both open-source and proprietary---have been developed at unprecedented speed \cite{clusmann2023future}. 
+
+
+\section{Motivation}
+\subsection{Department of Gastroenterology and Human Nutrition, AIIMS, New Delhi}
+\lettrine{T}{ }he \textcolor{TUMRed}{\textbf{Department of Gastroenterology and Human Nutrition}} at the All India Institute of Medical Sciences (AIIMS), New Delhi, was established in 1971 to create qualified gastroenterologists for the country. It is one of the 49 teaching departments and centers at AIIMS, New Delhi.\\[\baselineskip]
+
+\noindent According to the 2022-2023 Annual Report \cite{AIIMS2024}, the department managed a total of \textcolor{TUMRed}{\textbf{1,35,944 outpatient department (OPD) cases}}, of which \textcolor{TUMRed}{\textbf{42,586 were new cases}} and \textcolor{TUMRed}{\textbf{93,358 were follow-up cases}}. This is a significant increase from the previous year's figures of 17,790 new cases and 35,622 follow-up cases as shown in Table \ref{tab:aiims_opd} below. In total, the Main Hospital at AIIMS catered to \textcolor{TUMRed}{\textbf{10,39,523 patients}} through its General OPD, Specialty Clinics, and Emergency Department.
+
+% insert table for above data
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{Year} & \textbf{New Cases} & \textbf{Follow-up Cases} & \textbf{Total Cases} \\
+        \hline
+        2020-2021 & 7,920 & 11,956 & 19,876 \\
+        2021-2022 & 17,790 & 35,622 & 53,412 \\
+        2022-2023 & 42,586 & 93,358 & 1,35,944 \\
+        \hline
+    \end{tabular}
+    \caption{AIIMS, New Delhi OPD Cases for The Department of Gastroenterology and Human Nutrition}
+    \label{tab:aiims_opd}
+\end{table}
+
+\noindent The Routine Gastroenterology OPD operates from Monday to Friday, 8:30 a.m. to 1:00 p.m. \cite{AIIMSOPD}. Given this limited time frame of 270 minutes daily over 5 working days, approximately \textcolor{TUMRed}{\textbf{8,500 new cases are handled per day}}, with multiple physicians addressing various chief complaints.\\[\baselineskip]
+
+\noindent As discussed in Section \ref{sec:abdominal_pain}, one of the most diagnostically challenging chief complaints is \textcolor{TUMRed}{\textbf{abdominal pain}}. A complete protocol of structured questions helps filter the probable diagnosis and the organ of origin. However, the high influx of patients leaves little room for physicians to conduct comprehensive questionnaire-based evaluations before physical examinations. Consequently, many patients do not undergo the complete protocol, thereby increasing the cognitive burden on physicians and increasing the risk of diagnostic errors.\\[\baselineskip]
+
+\noindent This challenge forms the motivation for the development of a Clinical Decision Support System (CDSS). The CDSS aims to streamline the process of collecting responses to structured questionnaires and assist physicians in formulating probable diagnoses and identifying the organ of origin before physical examination.\\[\baselineskip]
+
+\noindent \textcolor{TUMRed}{\textbf{Patient-side motivation}}: When deployed, the system can handle multiple patients simultaneously via multiple devices. It can conduct the initial evaluation and generate a probable diagnosis and organ of origin. The output will be printed for the patient, who can then present it to the physician. This approach reduces the consultation time for each patient and allows for a more focused interaction during the physical examination.\\[\baselineskip]
+
+\noindent \textcolor{TUMRed}{\textbf{Physician-side motivation}}: Physicians no longer need to ask every patient the same set of questions repeatedly, allowing them to concentrate on higher-order tasks such as diagnosis and treatment. Additionally, the inferred probable diagnosis and identified organ of origin significantly aid physicians in their decision-making. As depicted in the bar chart in Figure <ref>, for a set of 29 probable diagnoses, the top diagnosis can have upwards of \textcolor{TUMRed}{\textbf{5,000 possible combinations of answers}} to the questionnaire. By automating this process, the physician's cognitive load is significantly reduced, thereby improving efficiency and reducing diagnostic errors.
+
+% Insert the image for the above data
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.11]{images/possible_combinations.png}
+    \caption{Possible Combinations of Answers}
+    \label{fig:possible_combinations}
+\end{figure}
+
+\subsection{Source of Data}
+Another significant motivation is the \textcolor{TUMRed}{\textbf{collection of diverse voice-based data}} from patients. AIIMS serves as a \textcolor{TUMRed}{\textbf{melting pot for linguistically diverse populations}} from across India. This is reflected in the geographical distribution of inpatients at AIIMS during the year 2021-2022, as shown in the pie chart below \ref{fig:inpatient_distribution} \cite{AIIMS2024}.\\[\baselineskip]
+
+% Insert the image for the above data
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.13]{images/inpatient_distribution.png}
+    \caption{Inpatient Distribution}
+    \label{fig:inpatient_distribution}
+\end{figure}
+
+\noindent This diversity in linguistic backgrounds presents a unique opportunity to collect and analyze \textcolor{TUMRed}{\textbf{voice-based data}} from patients. Such data can be used to develop \textcolor{TUMRed}{\textbf{robust linguistic-agnostic conversational models}} for the Indian population. A linguistic-agnostic system can recognize and process multiple accents, regional pronunciations, and dialectical variations. Including these better and more robust models will increase patient care and inclusivity.
+
+\subsection{Broader Impact}
+The broader impact of this system extends beyond the Department of Gastroenterology. It addresses several challenges posed by general-purpose large language models (LLMs) such as ChatGPT, which are not well-suited for department-specific protocols \cite{clusmann2023future}. The issues are discussed in detail in the Literature Review section.\\[\baselineskip]
+
+\noindent Given these limitations, the proposed approach can be extended to other departments and target chief complaints other than abdominal pain. This would allow the development of multiple CDSS subsystems for various medical specialties. These subsystems can work in coordination, forming a broader, integrated, AI-assisted healthcare ecosystem.\\[\baselineskip]
