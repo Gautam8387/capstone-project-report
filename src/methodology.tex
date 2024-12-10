@@ -1,0 +1,57 @@
+\section{Protocol}
+\lettrine{T}{ }he development of the Clinical Decision Support System (CDSS) was guided by a structured protocol provided by the physicians of the Department of Gastroenterology and Human Nutrition at AIIMS, New Delhi. This protocol defines the flow of patient interaction through a set of questions designed to capture essential diagnostic information related to abdominal pain.\\[\baselineskip]
+
+\noindent The initial protocol consisted of a 12-question diagnostic questionnaire that addressed key clinical dimensions of abdominal pain, as described in Section \ref{sec:abdominal_pain}. These questions explored aspects like pain location, intensity, aggravating factors, associated symptoms, etc. However, for a more controlled and streamlined workflow, the questionnaire was later broken down to include 17 refined questions. By refining these questions, a categorization of questions was made possible. For instance, questions related to menstrual cycle health were separated from the general set of symptoms to provide more focused and relevant insights for female patients.\\[\baselineskip]
+
+\noindent Through refinement, the 17 questions were grouped into the following categories:
+\begin{enumerate}
+    \item \textcolor{TUMRed}{\textbf{Discriminators}}: Critical questions are used to differentiate between emergency cases and regular OPD cases. If the answer to any of these questions indicates a potential emergency, the patient is automatically redirected to the emergency department instead of continuing through the normal OPD process.
+    \item \textcolor{TUMRed}{\textbf{Demographic}}: Questions related to the patient's demographic information, such as age and gender.
+    \item \textcolor{TUMRed}{\textbf{Female-Specific}}: Questions specific to female health issues --- menstrual health --- that play a significant role in the diagnostic process for women but are irrelevant to male patients.
+    \item \textcolor{TUMRed}{\textbf{General}}: These are common questions applicable to all patients, regardless of gender, and form the core of the diagnostic questionnaire.
+\end{enumerate}
+A detailed breakdown of the 17 questions into the four categories is presented in Figure \ref{fig:question_breakdown}. A tabulated version of the 17 questions and their respective answers can be found in Appendix \ref{appendix:questionnaire}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.1]{images/question_breakdown.png}
+    \caption{Breakdown of the 17 Questions into Categories}
+    \label{fig:question_breakdown}
+\end{figure}
+
+\subsection{Probable Diagnosis and Organ of Origin}
+\lettrine{T}{ }he core function of the CDSS is to map patient responses to probable diagnoses and the organ of origin. The process for determining these outcomes relies on a pre-defined list of possible diagnoses and corresponding organs of origin, as provided by the Department of Gastroenterology and Human Nutrition at AIIMS.
+\subsubsection{Diagnosis Mapping}
+The Physician provided a list of 29 possible diagnoses related to abdominal pain. Each diagnosis is associated with a specific set of responses to the 17 questions from the protocol. To identify a potential diagnosis, the patient's responses are compared against this set of known answer combinations. If the patient's responses align with one of these pre-defined answer sets, a match is established for the probable diagnosis.
+\subsubsection{Organ-of-Origin Identification}
+The CDSS performs the identification of the organ of origin for abdominal pain. This identification is done via the mapping established by linking 29 diagnoses to a set of 19 possible organs of origin. Once a probable diagnosis is identified, the system determines the corresponding organ of origin using a \textcolor{TUMBlue}{deterministic mapping} approach. This allows the system to be interpretable.\\[\baselineskip]
+
+\noindent The relationships between questions, diagnoses, and organs of origin are represented as a graph structure. Each diagnosis is connected to potential answers for the 12 core questions, forming distinct paths in the graph. The graphical representation in Figure \ref{fig:graphical_representation} provides a visual explanation of how diagnoses are reached based on patient responses. A tabulated mapping of organs of origin to diagnoses can be found in Appendix \ref{appendix:organs_of_origin}.\\[\baselineskip]
+
+\noindent In Figure \ref{fig:graphical_representation}, the pink nodes (center) correspond to the 29 diagnoses, while the yellow nodes represent the 19 possible organs of origin (center below). The nodes representing answers to the 12 original questions are displayed in 12 distinct colors, each corresponding to a specific question.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.07]{images/graphical_representation.png}
+    \caption{Graphical Representation of the Mapping between Questions, Diagnoses, and Organs of Origin}
+    \label{fig:graphical_representation}
+\end{figure}
+
+\section{workflow}
+\lipsum[1]
+\section{Implementation of the CDSS}
+\subsection{Technologies Used}
+ABCD % mention about android etc
+\subsection{System Architecture}
+\subsubsection{High-Level Design}
+EFGH
+\subsubsection{Low-Level Design}
+IJKL
+\subsection{User Interface}
+LMNO % mention german paper -- HCI also
+\subsection{Data Flow}
+PQRS
+\subsection{Challenges \& Mitigations}
+TUVW % Mention about the integration -- where are we integrating the CDSS, refer to up-figure again in earlier section
+\section{Evaluation}
+Currently, the CDSS is in the final stages of development and is yet to be deployed for clinical evaluation. The evaluation process will involve a beta test with a small group of physicians from the Department of Gastroenterology and Human Nutrition at AIIMS. The physicians will interact with the system and provide feedback on the system's usability, accuracy, and overall performance. The feedback will be used to refine the system further before a full-scale deployment.\\[\baselineskip]
