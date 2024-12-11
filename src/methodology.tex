@@ -19,38 +19,73 @@ A detailed breakdown of the 17 questions into the four categories is presented i
     \label{fig:question_breakdown}
 \end{figure}
 
-\subsection{Probable Diagnosis and Organ of Origin}
+\section{Probable Diagnosis and Organ of Origin}
 \lettrine{T}{ }he core function of the CDSS is to map patient responses to probable diagnoses and the organ of origin. The process for determining these outcomes relies on a pre-defined list of possible diagnoses and corresponding organs of origin, as provided by the Department of Gastroenterology and Human Nutrition at AIIMS.
-\subsubsection{Diagnosis Mapping}
+
+\subsection{Diagnosis Mapping}
 The Physician provided a list of 29 possible diagnoses related to abdominal pain. Each diagnosis is associated with a specific set of responses to the 17 questions from the protocol. To identify a potential diagnosis, the patient's responses are compared against this set of known answer combinations. If the patient's responses align with one of these pre-defined answer sets, a match is established for the probable diagnosis.
-\subsubsection{Organ-of-Origin Identification}
+
+\subsection{Organ-of-Origin Identification}
 The CDSS performs the identification of the organ of origin for abdominal pain. This identification is done via the mapping established by linking 29 diagnoses to a set of 19 possible organs of origin. Once a probable diagnosis is identified, the system determines the corresponding organ of origin using a \textcolor{TUMBlue}{deterministic mapping} approach. This allows the system to be interpretable.\\[\baselineskip]
 
 \noindent The relationships between questions, diagnoses, and organs of origin are represented as a graph structure. Each diagnosis is connected to potential answers for the 12 core questions, forming distinct paths in the graph. The graphical representation in Figure \ref{fig:graphical_representation} provides a visual explanation of how diagnoses are reached based on patient responses. A tabulated mapping of organs of origin to diagnoses can be found in Appendix \ref{appendix:organs_of_origin}.\\[\baselineskip]
 
 \noindent In Figure \ref{fig:graphical_representation}, the pink nodes (center) correspond to the 29 diagnoses, while the yellow nodes represent the 19 possible organs of origin (center below). The nodes representing answers to the 12 original questions are displayed in 12 distinct colors, each corresponding to a specific question.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.07]{images/graphical_representation.png}
     \caption{Graphical Representation of the Mapping between Questions, Diagnoses, and Organs of Origin}
     \label{fig:graphical_representation}
 \end{figure}
 
-\section{workflow}
-\lipsum[1]
+\subsection{Workflow}
+The workflow of the questionnaire begins with the patient's interaction with the system through a structured questionnaire. As shown in Figure \ref{fig:workflow}, it starts with discriminator questions to identify emergencies; if flagged, the patient is directed to the emergency department. Otherwise, the patient proceeds to demographic questions to gather basic information like age and gender, followed by general questions covering universal symptoms and history. Female patients are asked additional questions related to menstrual health before proceeding to the general questions. The patient's responses are then mapped to probable diagnoses and organs of origin, as described in the previous section. The system generates a report based on the patient's responses, which contains all the answers provided by the patient, the probable diagnosis, and the organ of origin for the physician's reference.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.1]{images/workflow.png}
+    \caption{Workflow of the Patient-Questionnaire Interaction}
+    \label{fig:workflow}
+\end{figure}
+
 \section{Implementation of the CDSS}
-\subsection{Technologies Used}
+
 ABCD % mention about android etc
-\subsection{System Architecture}
-\subsubsection{High-Level Design}
-EFGH
-\subsubsection{Low-Level Design}
-IJKL
+\subsection{System Design}
+The system level design is shown in Figure \ref{fig:high_level_design}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.12]{images/high_level_design.png}
+    \caption{High-Level Design of the CDSS}
+    \label{fig:high_level_design}
+\end{figure}
+
+The creation of conversational agent is shown in Figure \ref{fig:conversational_agent}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.12]{images/conversational_agent.png}
+    \caption{Creation of Conversational Agent}
+    \label{fig:conversational_agent}
+\end{figure}
+
 \subsection{User Interface}
-LMNO % mention german paper -- HCI also
-\subsection{Data Flow}
-PQRS
+Initial design in Figma, demo available \href{https://kutumlab.github.io/abdominal-pain-cdss/#mobile-application}{here}.
+
+Streamlit implementation for a probable diagnosis and organ of origin, demo available \href{https://kutumlab.github.io/abdominal-pain-cdss/#web-application-diagnosis}{here}.
+
+Streamlit Implementation for a emergency department visit, demo available \href{https://kutumlab.github.io/abdominal-pain-cdss/#web-application-emergency-visit}{here}.
+
+\subsection{Augmeneted Workflow}
+Augmeneted workflow as shown in Figure \ref{fig:aug_workflow}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.12]{images/aug_workflow.png}
+    \caption{CDSS Augmeneted Workflow for Abdominal Pain Evaluation}
+    \label{fig:aug_workflow}
+\end{figure}
+
+
 \subsection{Challenges \& Mitigations}
 TUVW % Mention about the integration -- where are we integrating the CDSS, refer to up-figure again in earlier section
 \section{Evaluation}
