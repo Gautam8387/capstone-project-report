@@ -220,7 +220,7 @@
     \begin{textblock*}{\defaultwidth}(\defaulthpos, \informationvpos)
         \centering
         Capstone Project Report submitted to the {\@faculty}\\
-        for the fullfillment of the requirements of the degree of 
+        for the fulfillment of the requirements of the degree of 
 
         \vspace{6mm}
 
@@ -229,7 +229,7 @@
         \vspace{6mm}
         
         \centering
-        in \textcolor{TUMBlueDarker}{Computer Scinece} at Ashoka University
+        in \textcolor{TUMBlueDarker}{Computer Science} at Ashoka University
 
     \end{textblock*}
 

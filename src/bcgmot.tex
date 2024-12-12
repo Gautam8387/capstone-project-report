@@ -18,11 +18,11 @@
     \item \textcolor{TUMRed}{\textbf{Surgical History}}: Prior surgical procedures on the gallbladder, intestines, kidneys, or uterus.
     \item \textcolor{TUMRed}{\textbf{Gender-Specific Considerations}}: Conditions related to the reproductive system, such as abnormal vaginal bleeding, menstrual irregularities, and foul discharge, play a role in the evaluation of abdominal pain, particularly in female patients.
 \end{itemize}
-\noindent The process of evaluating abdominal pain typically begins with patient history-taking to collect information on the above-mentioned aspects. This is followed by a physical examination, as shown in Figure \ref{fig:abdominal_regions} (B) below, where physicians use visual inspection and hands-on techniques such as palpation, percussion, and auscultation. The examination is often performed with the patient in a supine position with bent knees to relax the abdominal muscles and facilitate assessment \cite{AbExm, cartwright2008evaluation}.\\[\baselineskip]
+\noindent The process of evaluating abdominal pain begins with patient history-taking to collect information on the above-mentioned aspects. This is followed by a physical examination, as shown in Figure \ref{fig:abdominal_regions} (B) below, where physicians use visual inspection and hands-on techniques such as palpation, percussion, and auscultation. The examination is often performed with the patient in a supine position with bent knees to relax the abdominal muscles and facilitate assessment \cite{AbExm, cartwright2008evaluation}.\\[\baselineskip]
 
-\noindent If the initial evaluation does not provide sufficient diagnostic clarity, physicians may order laboratory tests (e.g., blood work, urine analysis) or imaging studies (e.g., ultrasound, X-ray, or CT scan) to gather further evidence. Based on the collective information from history, physical examination, and diagnostic tests, physicians generate a differential diagnosis --- a list of possible conditions that could explain the symptoms. This process continues until the most probable diagnosis is reached \cite{ddCleveland}.\\[\baselineskip]
+\noindent If the initial evaluation does not provide sufficient diagnostic clarity, physicians may order laboratory tests (e.g. blood work, urine analysis, etc.) or imaging studies (e.g. ultrasound, MRI, or CT scan) to gather further evidence. Based on the collective information from history, physical examination, and diagnostic tests, physicians generate a differential diagnosis --- a list of possible conditions that could explain the symptoms. This process continues until the most probable diagnosis is reached \cite{ddCleveland}.\\[\baselineskip]
 
-\noindent The CDSS developed as part of this thesis aims to streamline the information-gathering phase of abdominal pain evaluation. By integrating a linguistically-agnostic, text-based conversational agent, the system collects essential patient information regarding the dimensions mentioned earlier to identify a probable diagnosis and organ of origin using a deterministic approach. The final decision and subsequent physical examination remain under the physician's control.
+\noindent The CDSS developed as part of this thesis aims to streamline the information-gathering phase of abdominal pain evaluation. By integrating a linguistically-agnostic conversational agent, the system collects essential patient information regarding the dimensions mentioned earlier to identify a probable diagnosis and organ of origin using a deterministic approach. The final decision and subsequent physical examination remain under the physician's control.
 
 \begin{figure}[h]
     \centering
@@ -33,23 +33,7 @@
 
 
 \subsection{Clinical Decision Support Systems (CDSS)}
-\textcolor{TUMBlue}{\textbf{Clinical Decision Support (CDS)}}
-\noindent \lettrine{C}{ }linical Decision Support (CDS) refers to a broad set of tools, systems, and interventions aimed at enhancing clinical decision-making. By providing clinicians, healthcare workers, and patients with \textcolor{TUMRed}{\textbf{situation-specific knowledge}}, CDS supports a range of critical healthcare activities such as diagnosis, risk assessment, prognosis, and treatment selection \cite{osheroff2007roadmap}. This support can be delivered through various mediums, including reference guidelines, alerts, and evidence-based recommendations.\\[\baselineskip]
-
-\noindent The goal of CDS is to \textcolor{TUMRed}{\textbf{bridge the gap between clinical knowledge and patient care}}. As medical knowledge expands and healthcare systems become more data-driven, CDS ensures that healthcare providers have access to timely and relevant information. This, in turn, enables more efficient and informed decision-making.\\[\baselineskip]
-
-\noindent \textcolor{TUMBlue}{\textbf{Clinical Decision Support System (CDSS)}}\\
-A Clinical Decision Support System (CDSS) is a specialized type of CDS that employs \textcolor{TUMRed}{\textbf{software-based tools}} to directly aid healthcare providers in making clinical decisions. Unlike general CDS, which may include static guidelines or references, CDSS is dynamic, \textcolor{TUMRed}{\textbf{patient-specific}}, and interactive. By integrating patient-specific information with a computerized knowledge base, CDSS generates recommendations, alerts, and assessments that assist clinicians in diagnosis, treatment, and care planning \cite{hunt1998effects}.
-
-\begin{mdframed}[backgroundcolor=black!10]
-    \centering
-    \textit{“Any software designed to aid in clinical decision-making by matching patient characteristics to a computerized knowledge base to generate tailored patient-specific assessments or recommendations”}\\
-    \flushright
-    -  Hunt et al. \cite{hunt1998effects}
-\end{mdframed}
-
-\noindent Unlike fully autonomous AI models, CDSS systems are designed to work \textcolor{TUMRed}{\textbf{in collaboration with healthcare professionals}}, offering them interpretive insights and enabling human oversight.\\[\baselineskip]
-
+\textcolor{TUMBlue}{\textbf{Clinical Decision Making}}\\
 \noindent Effective clinical decision-making requires a clinician to have:
 \begin{itemize}
     \item Up-to-date Medical Knowledge
@@ -65,6 +49,23 @@ A Clinical Decision Support System (CDSS) is a specialized type of CDS that empl
 \end{itemize}
 
 \noindent Given the challenges and the rapid advancements in health makes it impossible for a clinician to remember and apply them in clinical care without some form of assistance, thus the role of Clinical Decision Support Systems (CDSS) becomes essential in modern healthcare \cite{visweswaran2022integration}. With the adoption of Artificial Intelligence in Medicine, existing physicians can handle more cases as systems become more automated \cite{panch2018artificial}.\\[\baselineskip]
+
+\noindent \textcolor{TUMBlue}{\textbf{Clinical Decision Support (CDS)}}
+\noindent \lettrine{C}{ }linical Decision Support (CDS) refers to a broad set of tools, systems, and interventions aimed at enhancing clinical decision-making. By providing clinicians, healthcare workers, and patients with \textcolor{TUMRed}{\textbf{situation-specific knowledge}}, CDS supports a range of critical healthcare activities such as diagnosis, risk assessment, prognosis, and treatment selection \cite{osheroff2007roadmap}. This support can be delivered through various mediums, including reference guidelines, alerts, and evidence-based recommendations.\\[\baselineskip]
+
+\noindent The goal of CDS is to \textcolor{TUMRed}{\textbf{bridge the gap between clinical knowledge and patient care}}. As medical knowledge expands and healthcare systems become more data-driven, CDS ensures that healthcare providers have access to timely and relevant information. This, in turn, enables more efficient and informed decision-making.\\[\baselineskip]
+
+\noindent \textcolor{TUMBlue}{\textbf{Clinical Decision Support System (CDSS)}}\\
+A Clinical Decision Support System (CDSS) is a specialized type of CDS that employs \textcolor{TUMRed}{\textbf{software-based tools}} to directly aid healthcare providers in making clinical decisions. Unlike general CDS, which may include static guidelines or references, CDSS is dynamic, \textcolor{TUMRed}{\textbf{patient-specific}}, and interactive. By integrating patient-specific information with a computerized knowledge base, CDSS generates recommendations, alerts, and assessments that assist clinicians in diagnosis, treatment, and care planning \cite{hunt1998effects}.
+
+\begin{mdframed}[backgroundcolor=black!10]
+    \centering
+    \textit{“Any software designed to aid in clinical decision-making by matching patient characteristics to a computerized knowledge base to generate tailored patient-specific assessments or recommendations”}\\
+    \flushright
+    -  Hunt et al. \cite{hunt1998effects}
+\end{mdframed}
+
+\noindent Unlike fully autonomous AI models, CDSS systems are designed to work \textcolor{TUMRed}{\textbf{in collaboration with healthcare professionals}}, offering them interpretive insights and enabling human oversight.\\[\baselineskip]
 
 \noindent \textcolor{TUMBlue}{\textbf{Types of Clinical Decision Support System (CDSS)}}\\
 As per \cite{visweswaran2022integration} CDSS can be broadly classified into two categories:
@@ -102,7 +103,7 @@ As per \cite{visweswaran2022integration} CDSS can be broadly classified into two
 
 \noindent Conversational agents, also known as \textcolor{TUMRed}{\textbf{chatbots}}, have a long history in healthcare, dating back to the development of ELIZA. Joseph Weizenbaum developed one of the first medical chatbots in the mid-1960s at the Massachusetts Institute of Technology (MIT) \cite{haug2023artificial, weizenbaum1966eliza}. Although ELIZA operated on simple pattern-matching rules, it demonstrated the potential of conversational agents to simulate human interaction.\\[\baselineskip]
 
-\noindent Since then, NLP has progressed to the current state of Large Language Models (LLMs) are advanced \textcolor{TUMRed}{\textbf{AI models}} specifically trained to process, understand, and generate text. One of the popular ways is how LLMs are used as conversational agents. Since the release of ChatGPT, numerous LLMs---both open-source and proprietary---have been developed at unprecedented speed \cite{clusmann2023future}. 
+\noindent Since then, Natural Language Processing (NLP) has progressed to the current state of Large Language Models (LLMs). These are advanced \textcolor{TUMRed}{\textbf{AI models}} specifically trained to process, understand, and generate text. One of the popular ways is how LLMs are used as conversational agents. Since the release of ChatGPT, numerous LLMs---both open-source and proprietary---have been developed at unprecedented speed \cite{clusmann2023future}. 
 
 
 \section{Motivation}
@@ -135,7 +136,7 @@ As per \cite{visweswaran2022integration} CDSS can be broadly classified into two
 
 \noindent \textcolor{TUMRed}{\textbf{Patient-side motivation}}: When deployed, the system can handle multiple patients simultaneously via multiple devices. It can conduct the initial evaluation and generate a probable diagnosis and organ of origin. The output will be printed for the patient, who can then present it to the physician. This approach reduces the consultation time for each patient and allows for a more focused interaction during the physical examination.\\[\baselineskip]
 
-\noindent \textcolor{TUMRed}{\textbf{Physician-side motivation}}: Physicians no longer need to ask every patient the same set of questions repeatedly, allowing them to concentrate on higher-order tasks such as diagnosis and treatment. Additionally, the inferred probable diagnosis and identified organ of origin significantly aid physicians in their decision-making. As depicted in the bar chart in Figure \ref{fig:possible_combinations}, for a set of 29 probable diagnoses, the top diagnosis can have upwards of \textcolor{TUMRed}{\textbf{5,000 possible combinations of answers}} to the questionnaire. By automating this process, the physician's cognitive load is significantly reduced, thereby improving efficiency and reducing diagnostic errors.
+\noindent \textcolor{TUMRed}{\textbf{Physician-side motivation}}: Physicians no longer need to ask every patient the same set of questions repeatedly, allowing them to concentrate on higher-order tasks such as diagnosis and treatment. Additionally, the inferred probable diagnosis and identified organ of origin significantly aid physicians in their decision-making. As depicted in the bar chart in Figure \ref{fig:possible_combinations}, for a set of 29 probable diagnoses, the top diagnosis can have more than \textcolor{TUMRed}{\textbf{5,000 possible combinations of answers}} to the questionnaire. By automating this process, the physician's cognitive load is significantly reduced, thereby improving efficiency and reducing diagnostic errors.
 
 % Insert the image for the above data
 \begin{figure}[h]
@@ -159,6 +160,6 @@ As per \cite{visweswaran2022integration} CDSS can be broadly classified into two
 \noindent This diversity in linguistic backgrounds presents a unique opportunity to collect and analyze \textcolor{TUMRed}{\textbf{voice-based data}} from patients. Such data can be used to develop \textcolor{TUMRed}{\textbf{robust linguistic-agnostic conversational models}} for the Indian population. A linguistic-agnostic system can recognize and process multiple accents, regional pronunciations, and dialectical variations. Including these better and more robust models will increase patient care and inclusivity.
 
 \subsection{Broader Impact}
-\lettrine{T}{ }he broader impact of this system extends beyond the Department of Gastroenterology. It addresses several challenges posed by general-purpose large language models (LLMs) such as ChatGPT, which are not well-suited for department-specific protocols \cite{clusmann2023future}. The issues are discussed in detail in the Literature Review section.\\[\baselineskip]
+\lettrine{T}{ }he broader impact of this system extends beyond the Department of Gastroenterology. It addresses several challenges posed by general-purpose large language models (LLMs) such as ChatGPT, which are not well-suited for department-specific protocols \cite{clusmann2023future}. The issues are discussed in detail in Section \ref{sec:sota}.\\[\baselineskip]
 
 \noindent Given these limitations, the proposed approach can be extended to other departments and target chief complaints other than abdominal pain. This would allow the development of multiple CDSS subsystems for various medical specialties. These subsystems can work in coordination, forming a broader, integrated, AI-assisted healthcare ecosystem.\\[\baselineskip]
