@@ -49,44 +49,60 @@ The workflow of the questionnaire begins with the patient's interaction with the
 \end{figure}
 
 \section{Implementation of the CDSS}
+\lettrine{T}{ }he CDSS was implemented using a comprehensive technology stack. The aim was to create a system that is user-friendly, efficient, and easily accessible to physicians. The system was designed to be integrated into the hospital's existing infrastructure, allowing for seamless interaction with the CDSS.\\[\baselineskip]
 
-ABCD % mention about android etc
-\subsection{System Design}
-The system level design is shown in Figure \ref{fig:high_level_design}.
+\noindent The implementation involved the creation of both an Android application and a web application for patient interaction. The initial version Android application was developed using Java and Kotlin in Android Studio, while the web application was built using Streamlit in Python. Streamlit is an open-source Python framework for data scientists and AI/ML engineers to deliver dynamic data apps \cite{streamlit}. 
+
+\subsection{Frontend Development and User Interface}
+The frontend development involved creating a user-friendly interface for patient interaction. The Android application was designed to be intuitive and easy to navigate, with a clean and simple layout. The web application was developed to provide a seamless experience for patients interacting with the system on a desktop or mobile device. The frontend was designed to be responsive, ensuring that the system is accessible across a wide range of devices.\\[\baselineskip]
+
+\noindent The initial prototype of both the Android application was designed using Figma, a web-based design tool. Both applications were designed to follow the workflow defined in Figure \ref{fig:workflow}. Both applications followed a click-through option for patient interaction, where the patient could navigate through the questionnaire by answering each question sequentially. The responses were stored in the system and used to generate the probable diagnosis and organ of origin. As seen in \cite{eich1999internet}, even a simple interface with a well-defined workflow can be effective and have a significant impact on user-friendliness.\\[\baselineskip]
+
+\noindent The demonstration of the Android application design can be found on our website \href{https://kutumlab.github.io/abdominal-pain-cdss/#mobile-application}{here}. Another demonstration of the web application for a successful probable diagnosis and organ of origin can be found \href{https://kutumlab.github.io/abdominal-pain-cdss/#web-application-diagnosis}{here}. The web application for an emergency department visit can be found \href{https://kutumlab.github.io/abdominal-pain-cdss/#web-application-emergency-visit}{here}. The screenshots and complete URLs of the same are shown in the Appendix \ref{appendix:frontend_screenshots}. A future version of the CDSS will include the interface for voice-based interaction
+
+\subsection{Backend Development}
+The backend of the CDSS has two major components: the data dictionary and the conversational agent. The two components work together via a Python script. The entire backend is containerized using Docker for easy deployment and management.
+
+\subsubsection{Data Dictionary}
+Multiple data dictionaries contain the mapping between patient responses and probable diagnoses and organs of origin. These dictionaries are used to identify the probable diagnosis and organ of origin based on the patient's responses. Dictionaries are stored in JSON format for easy access and retrieval.
+\subsubsection{Conversational Agent}
+The conversational agent is responsible for interacting with the patient and guiding them through the questionnaire. The agent asks questions based on the patient's responses and stores the answers for further processing. The design of the conversational agent is shown in Figure \ref{fig:conversational_agent}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.12]{images/high_level_design.png}
-    \caption{High-Level Design of the CDSS}
-    \label{fig:high_level_design}
-\end{figure}
-
-The creation of conversational agent is shown in Figure \ref{fig:conversational_agent}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.12]{images/conversational_agent.png}
+    \includegraphics[scale=0.15]{images/conversational_agent.png}
     \caption{Creation of Conversational Agent}
     \label{fig:conversational_agent}
 \end{figure}
 
-\subsection{User Interface}
-Initial design in Figma, demo available \href{https://kutumlab.github.io/abdominal-pain-cdss/#mobile-application}{here}.
+\noindent We create a conversational agent using the open source Large Language Models (osLLMs) like Mistral (\texttt{Mistral 7B})\cite{jiang2023mistral}, Llama (\texttt{Llama 3.1 8B}) \cite{dubey2024llama}, Gemma (\texttt{Gemma 2 9B}) \cite{team2024gemma}, and others. The models were selected based on their performance and parameter size. From the above-mentioned models, \texttt{Gemma 2 9B} was selected for the conversational agent based on its performance and parameter size. We use prompt engineering \cite{liu2023pre} to provide the conversational agent with the necessary context to extract the patient's responses as accurately as possible after asking each question with its respective answer choices. \\[\baselineskip]
 
-Streamlit implementation for a probable diagnosis and organ of origin, demo available \href{https://kutumlab.github.io/abdominal-pain-cdss/#web-application-diagnosis}{here}.
+\noindent The conversational agent is hosted and managed by using Ollama \cite{ollama}, an open-source platform that allows for the deployment and management of large language models. Ollama provides an efficient environment for running these models locally, ensuring privacy and faster processing. Ollama provides an efficient environment for running these models locally, ensuring privacy and faster processing. The model is queried with the patient's responses using a REST API. We used Nvidia RTX A5000 GPU for loading the model and processing the patient's responses.
 
-Streamlit Implementation for a emergency department visit, demo available \href{https://kutumlab.github.io/abdominal-pain-cdss/#web-application-emergency-visit}{here}.
+\subsection{System Design}
+The system design of the CDSS is shown in Figure \ref{fig:high_level_design}. The system consists of two main components: the frontend and the backend. The frontend includes the Android and web applications, while the backend includes the data dictionary and the conversational agent. The containerized backend can be deployed on a local server or cloud platform such as AWS or Google Cloud.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.19]{images/high_level_design.png}
+    \caption{High-Level Design of the CDSS}
+    \label{fig:high_level_design}
+\end{figure}
 
-\subsection{Augmeneted Workflow}
-Augmeneted workflow as shown in Figure \ref{fig:aug_workflow}.
+\subsection{Augmented Workflow}
+The high-level augmentation of CDSS into the existing workflow of evaluation of abdominal pain is shown in Figure \ref{fig:abdominal_regions} (B), depicted by the dotted box. A more detailed view of the augmented workflow is shown in the Figure \ref{fig:aug_workflow}.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.12]{images/aug_workflow.png}
-    \caption{CDSS Augmeneted Workflow for Abdominal Pain Evaluation}
+    \caption{CDSS Augmented Workflow for Abdominal Pain Evaluation}
     \label{fig:aug_workflow}
 \end{figure}
 
+\noindent The patient interacts with the CDSS through the Android or web application, answering a set of structured questions. The responses are processed by the conversational agent, which identifies the probable diagnosis and organ of origin based on the patient's responses. The system generates a report containing the patient's responses, probable diagnosis, and organ of origin. The report is then reviewed by the physician, who uses the information to further the diagnostic process. The auditing of responses and the probable diagnosis is done by the physician to ensure the accuracy of the system. In case of any discrepancies, the physician can ask the patient for additional information to refine the diagnosis.
 
 \subsection{Challenges \& Mitigations}
-TUVW % Mention about the integration -- where are we integrating the CDSS, refer to up-figure again in earlier section
+One of the Challenges of any AI-based CDSS is the issue of explainability. The compartmentalization of the system ensures that the components can be updated independently without affecting the overall functionality of the system. It also ensures that the system can be easily audited and the output of each component can be tracked providing transparency, explainability, and interpretability. In case of any conflicting diagnosis, the output of the system can be easily traced back to the patient's responses and the mapping between the responses and the probable diagnosis.\\[\baselineskip]
+
+\noindent Another challenge is the issue of privacy and security. The system is designed to be deployed on a local server or cloud platform, ensuring that patient data is stored securely and complies with all relevant data protection regulations. The open-source nature of the system allows for easy customization and mitigates the issue of privacy and security. The system can be easily adapted to meet the specific requirements of different departments or hospitals.\\[\baselineskip]
+
 \section{Evaluation}
-Currently, the CDSS is in the final stages of development and is yet to be deployed for clinical evaluation. The evaluation process will involve a beta test with a small group of physicians from the Department of Gastroenterology and Human Nutrition at AIIMS. The physicians will interact with the system and provide feedback on the system's usability, accuracy, and overall performance. The feedback will be used to refine the system further before a full-scale deployment.\\[\baselineskip]
+\lettrine{C}{ }urrently, the CDSS is in the final stages of development and is yet to be deployed for clinical evaluation. The evaluation process will involve a beta test with a small group of physicians from the Department of Gastroenterology and Human Nutrition at AIIMS. The physicians will interact with the system and provide feedback on the system's usability, accuracy, and overall performance. The feedback will be used to refine the system further before a full-scale deployment.\\[\baselineskip]

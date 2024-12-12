@@ -268,7 +268,7 @@
     \begin{textblock*}{\defaultwidth}(\defaulthpos, \datevpos)
         \raggedright
 
-        The capstone project report was submitted to the Ashoka University on December 09, 2024 and accepted by the {\@faculty} on December 09, 2024.
+        The capstone project report was submitted to the Ashoka University on December 08, 2024 and accepted by the {\@faculty} on December 08, 2024.
 
     \end{textblock*}
 
