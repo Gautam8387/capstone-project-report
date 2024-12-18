@@ -65,6 +65,9 @@
 \newcommand{\vorsitz}[1]{\def\@vorsitz{#1}}%
 \newcommand{\vorsitzz}[1]{\def\@vorsitzz{#1}}%
 \newcommand{\vorsitzzz}[1]{\def\@vorsitzzz{#1}}%
+\newcommand{\eval}[1]{\def\@eval{#1}}%
+\newcommand{\evall}[1]{\def\@evall{#1}}%
+\newcommand{\evalll}[1]{\def\@evalll{#1}}%
 \newcommand{\erstpruef}[1]{\def\@erstpruef{#1}}%
 
 \newif\ifzweitpruefaffil
@@ -219,14 +222,14 @@
     % Informationstext
     \begin{textblock*}{\defaultwidth}(\defaulthpos, \informationvpos)
         \centering
-        Capstone Project Report submitted to the {\@faculty}\\
-        for the fulfillment of the requirements of the degree of 
-
-        \vspace{6mm}
+        The Capstone Project Report is submitted to the\\
+        {\@faculty} to fulfill the requirements for the degree of\\
+        
+        \vspace{4mm}
 
         \centering {\bfseries \large \textcolor{TUMRed}{\@degree}}
 
-        \vspace{6mm}
+        \vspace{4mm}
         
         \centering
         in \textcolor{TUMBlueDarker}{Computer Science} at Ashoka University
@@ -241,24 +244,31 @@
         \raggedright
 
         \textbf{Supervisor:}\\
-        \hspace{8mm}1. \@vorsitz\\
-        \hspace{8mm}2. \@vorsitzz\\
-        \hspace{8mm}3. \@vorsitzzz\\
+        \@vorsitz\\
+        \textbf{Internal Mentor:}\\
+        \@vorsitzz\\
+        \textbf{External Mentor:}\\
+        \@vorsitzzz\\
+        % \textbf{External Evaluators:}\\
+        % \@eval\\
+        % \@evall\\
+        % \@evalll
 
-        \vspace{2mm}
 
-        \textbf{Project Assessment Committee:}\\
-        \hspace{8mm}1. \@erstpruef\\
-        \hspace{8mm}2. \@zweitpruef
-        \ifzweitpruefaffil
-          ,\\\hspace{8mm}\hphantom{2. }\@zweitpruefaffil
-        \fi
-        \ifdrittpruefset
-          \\\hspace{8mm}3. \@drittpruef
-          \ifdrittpruefaffil
-            ,\\\hspace{8mm}\hphantom{2. }\@drittpruefaffil
-          \fi
-        \fi
+        % \vspace{2mm}
+
+        % \textbf{Project Assessment Committee:}\\
+        % \hspace{8mm}1. \@erstpruef\\
+        % \hspace{8mm}2. \@zweitpruef
+        % \ifzweitpruefaffil
+        %   ,\\\hspace{8mm}\hphantom{2. }\@zweitpruefaffil
+        % \fi
+        % \ifdrittpruefset
+        %   \\\hspace{8mm}3. \@drittpruef
+        %   \ifdrittpruefaffil
+        %     ,\\\hspace{8mm}\hphantom{2. }\@drittpruefaffil
+        %   \fi
+        % \fi
 
     \end{textblock*}
 

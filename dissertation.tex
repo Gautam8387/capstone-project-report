@@ -1,3 +1,4 @@
+% dissertation.tex
 %-------------------------------------------------------------------------------
 %
 % TUM Dissertation Template
@@ -92,7 +93,7 @@
 %-------------------------------------------------------------------------------
 \title{%
   Linguistic-agnostic Intelligent Support Systems for\\
-   Probable Diagnosis to Aid in Clinical Settings\\
+  probable diagnosis to aid in Clinical Settings\\
 }
 % \subtitle{--Extended Titile--}
 
@@ -100,16 +101,20 @@
 % People
 %-------------------------------------------------------------------------------
 \author{Gautam Ahuja}
-\vorsitz{Dr. Anurag Agarwal, Dean, Trivedi School of BioSciences, Ashoka University}
-\vorsitzz{Dr. Govind K Makharia, Professor, Department of Gastroenterology and Human Nutrition Adjunct Faculty, AIIMS - New Delhi}
-\vorsitzzz{Dr. Rintu Kutum, Faculty Fellow, Department of Computer Science, Ashoka University}
-\erstpruef{Dr. Partha Pratim Das, Professor of Computer Science, Ashoka University}
+\vorsitz{Dr. Rintu Kutum, Faculty Fellow, Department of Computer Science, Ashoka University}
+\vorsitzz{Dr. Anurag Agarwal, Dean, Trivedi School of BioSciences, Ashoka University}
+\vorsitzzz{Dr. Govind K Makharia, Professor, Department of Gastroenterology and Human Nutrition Adjunct Faculty, AIIMS - New Delhi}
+% \eval{Dr. Partha Pratim Das, Professor, Department of Computer Science, Ashoka University}
+% \evall{Dr. Lipika Dey, Professor, Department of Computer Science, Ashoka University}
+% \evalll{Dr. Ayush Agarwal, Senior Resident, Department of Gastroenterology and Human Nutrition, AIIMS, New Delhi}
+
+% \erstpruef{Dr. Partha Pratim Das, Professor of Computer Science, Ashoka University}
 
 % Use this one for a TUM professor
 % \zweitpruef{Prof. Dr.-Ing. Vorname Nachname}
 
 % Or this one for an external professor
-\zweitpruef[AIIMS, New Delhi]{Dr. Ayush Agarwal, Department of Gastroenterology and Human Nutrition}
+% \zweitpruef[AIIMS, New Delhi]{Dr. Ayush Agarwal, Department of Gastroenterology and Human Nutrition}
 
 % Optionally, add a third examiner
 %\drittpruef[RWTH Aachen]{Prof. Dr.-Ing. Max Mustermann}
@@ -327,11 +332,12 @@
 \chapter{Acknowledgment}
 \input{src/acknowledgment.tex}
 
+%-------------------------------------------------------------------------------
+\input{src/dedication.tex}
 
 %-------------------------------------------------------------------------------
 \chapter{Certificate}
 \input{src/certificate.tex}
-
 
 %-------------------------------------------------------------------------------
 % \chapter{Abstract}
@@ -344,7 +350,6 @@
 \listoftables
 \printglossary[type=\acronymtype, nonumberlist]
 
-
 %-------------------------------------------------------------------------------
 \mainmatter
 \chapter{Introduction}
@@ -353,7 +358,7 @@
 
 
 %-------------------------------------------------------------------------------
-\chapter{Background and Motivation}
+\chapter{Background, Motivation, Problem Statement, and Objectives}
 \label{chap:bcgmot}
 \input{src/bcgmot.tex}
 
@@ -364,10 +369,10 @@
 \input{src/sota.tex}
 
 
-%-------------------------------------------------------------------------------
-\chapter{Content}
-\label{chap:content}
-\input{src/content.tex}
+% %-------------------------------------------------------------------------------
+% \chapter{Content}
+% \label{chap:content}
+% \input{src/content.tex}
 
 %--------------------------------------------------------------------------------
 \chapter{Methodology}

@@ -1,4 +1,4 @@
-\section{Literature Survey}
+\section{Clinical Decision Support Systems (CDSS)}
 \label{sec:sota}
 \subsection{A Brief History of the Field}
 \lettrine{T}{ }he field of diagnostic reasoning in medicine became an early focus of AI, demonstrating that AI methods could approximate human performance in tasks requiring extensive domain knowledge. Early systems were designed to model human cognition explicitly, prioritizing interpretability over mere optimization of accuracy. Such systems were particularly adept at explaining their reasoning, contrasting with modern AI systems optimized solely for prediction accuracy, often at the cost of transparency \cite{cohen2022introducing}.\\[\baselineskip]
@@ -43,25 +43,31 @@
 \section{State of the Art}
 \lettrine{T}{ }he evolution of AI technologies in healthcare has driven a shift toward more dialogue-based approaches, taking advantage of LLMs to facilitate interactive conversations. The development of such technologies is particularly critical in healthcare, where the delivery of complex information must be accessible. These systems can play a transformative role for individuals with low health literacy or limited familiarity with technology, helping them navigate complex medical advice and treatment options effectively \cite{cohen2022intelligent}.\\[\baselineskip]
 
-\noindent Recent advancements in conversational LLMs like ChatGPT-4 have demonstrated remarkable capabilities in reasoning, planning, and using contextual information. While GPT-4 is trained on vast amounts of text data, and primarly developed for general domain, it lacks the specialized medical knowledge required for clinical decision-making. Clinical data tends to be proprietary, sensitive, and subject to strict privacy regulations, making it challenging to access and use for training AI models. Because of the interactive nature of the system, the user can request more detail regarding the response by asking follow-up questions or asking for more concise responses in order to get “to the point” more rapidly \cite{lee2023benefits}.\\[\baselineskip]
+\noindent Recent advancements in conversational LLMs like ChatGPT-4 have demonstrated remarkable capabilities in reasoning, planning, and using contextual information. While GPT-4 is trained on vast amounts of text data, and primarly developed for general domain, it lacks the specialized medical knowledge required for clinical decision-making. Clinical data tends to be proprietary, sensitive, and subject to strict privacy regulations, making it challenging to access and use for training AI models. Because of the interactive nature of the system, the user can request more detail regarding the response by asking follow-up questions or asking for more concise responses. These systems, often, try to provide final responses too early in order to get “to the point” more rapidly, making them not ideal for medical diagnostics purposes \cite{lee2023benefits}.\\[\baselineskip]
 
 
-\noindent On the other hand, systems like Google AMIE: A research AI system for diagnostic medical reasoning and conversations \cite{karthikesalingam2024amie} represent a new generation of AI tailored specifically for medical diagnostics and reasoning. Google AMIE is a research-focused AI designed to:
-\begin{itemize}
-    \item \textcolor{TUMRed}{\textbf{Perform Diagnostic Medical Reasoning}}: Simulating primary care physician (PCP) consultations and Objective Structured Clinical Examinations (OSCE).
-    \item \textcolor{TUMRed}{\textbf{Modular Architecture}}: AMIE utilizes a stage and agents-based architecture, allowing for easy integration of new modules and agents.
-\end{itemize}
+\noindent On the other hand, systems like Google AMIE: A research AI system for diagnostic medical reasoning and conversations \cite{karthikesalingam2024amie} represent a new generation of AI tailored specifically for medical diagnostics and reasoning. Google's AMIE employs a multi-agent modular architecture to facilitate diagnostic reasoning akin to physician consultations. It simulates primary care physician (PCP) consultations and Objective Structured Clinical Examinations (OSCE), enabling explainable, auditable decision support. Unlike earlier black-box AI systems, AMIE's modular structure promotes system transparency.\\[\baselineskip]
+% Google AMIE is a research-focused AI designed to:
+% \begin{itemize}
+%     \item \textcolor{TUMRed}{\textbf{Perform Diagnostic Medical Reasoning}}: Simulating primary care physician (PCP) consultations and Objective Structured Clinical Examinations (OSCE).
+%     \item \textcolor{TUMRed}{\textbf{Modular Architecture}}: AMIE utilizes a stage and agents-based architecture, allowing for easy integration of new modules and agents.
+% \end{itemize}
+
+\noindent In the Indian context, initiatives like Bhashini and AI4Bharat have contributed significantly to the development of linguistic-agnostic models as discussed in section \ref{sec:linguistic_agnostic}. The initiaves like Folk Computing further exemplifies linguistic-agnostic support systems.\\[\baselineskip]
+
 \noindent A notable emerging trend also being observed where graphs-based models and graph representation learning \cite{johnson2024graph} is being used in medicine to manage and analyze the vast, multimodal datasets generated in healthcare. Graph-based models are particularly well-suited for capturing complex relationships between entities, such as diseases, symptoms, treatments, and patient demographics. 
 
 \section{Gap Analysis}
 
 \lettrine{A}{ } significant limitation of current approaches is their black-box nature and full autonomy in diagnostic decisions \cite{clusmann2023future}. There is a pressing need for auditable and traceable systems where AI assists rather than replaces clinical decision-making \cite{cohen2022intelligent}. The ideal solution should provide explainable recommendations while keeping diagnostic control firmly in the hands of healthcare professionals, ensuring accountability, and maintaining the critical role of human expertise in patient care as explained by the three pillars in Figure \ref{fig:explainable_AIM} \cite{explainableAIM}. This is particularly important in specialized medical departments where standardized protocols and human oversight are essential for patient safety \cite{cohen2022intelligent}.\\[\baselineskip]
 
-\noindent While recent advancements in LLMs have shown impressive capabilities in medical domains, there remains a critical gap in \textcolor{TUMRed}{\textbf{department-specific}} Clinical Decision Support Systems. Current general-purpose AI systems lack the specialized knowledge and protocols required for specific medical departments, potentially leading to misinformation and compromised patient care. Additionally, most existing systems operate as standalone solutions rather than taking a system-level perspective that considers integration with existing clinical workflows and protocols, incorporating both \textcolor{TUMRed}{\textbf{rule-based}} and \textcolor{TUMRed}{\textbf{data-driven}} approaches while also ensuring \textcolor{TUMRed}{\textbf{explainability}} and \textcolor{TUMRed}{\textbf{transparency}} in decision-making.
+\noindent While recent advancements in LLMs have shown impressive capabilities in medical domains, there remains a critical gap in \textcolor{TUMRed}{\textbf{department-specific}} Clinical Decision Support Systems. Current general-purpose AI systems lack the specialized knowledge and protocols required for specific medical departments, potentially leading to misinformation and compromised patient care. Additionally, most existing systems operate as standalone solutions rather than taking a system-level perspective that considers integration with existing clinical workflows and protocols, incorporating both \textcolor{TUMRed}{\textbf{rule-based}} and \textcolor{TUMRed}{\textbf{data-driven}} approaches while also ensuring \textcolor{TUMRed}{\textbf{explainability}} and \textcolor{TUMRed}{\textbf{transparency}} in decision-making.\\[\baselineskip]
 
-\begin{figure}[h]
+\noindent From a linguistic perspective, despite advancements, there remain critical gaps. Current models primarily support formal, text-based Hindi but struggle with spoken Hindi, which includes colloquial expressions and regional variations. Pure Hindi, as used in textbooks, often diverges from the Hindi spoken by rural populations. Current ASR models fail to generalize across accents and non-standard usage. Voice-based systems are further limited in handling India's vast spectrum of dialects, which vary significantly by region and community.\\[\baselineskip]
+
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.1]{images/explainable_AIM.png}
+    \includegraphics[scale=0.08]{images/explainable_AIM.png}
     \caption{Three pillars of explainable AI}
     \label{fig:explainable_AIM}
 \end{figure}
