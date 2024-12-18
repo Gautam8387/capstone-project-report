@@ -1,0 +1,131 @@
+\section{Protocol}
+\lettrine{T}{ }he protocol defines the flow of patient interaction through a set of questions designed to capture essential diagnostic information related to abdominal pain. The initial protocol consisted of a 12-question diagnostic questions that addressed key clinical dimensions of abdominal pain, as described in Section \ref{sec:abdominal_pain}. These questions explored aspects like pain location, intensity, aggravating factors, associated symptoms, etc. However, for a more controlled and streamlined workflow, the questionnaire was later broken down to include 17 refined questions. By refining these questions, a categorization of questions was made possible. For instance, questions related to menstrual cycle health were separated from the general set of symptoms to provide more focused and relevant insights for female patients. The 17 questions were grouped into the following categories:
+\begin{itemize}
+    \item \textcolor{TUMRed}{\textbf{Discriminators}}: Critical questions are used to differentiate between emergency cases and regular OPD cases. If the answer to any of these questions indicates a potential emergency, the patient is automatically redirected to the emergency department instead of continuing through the normal OPD process.
+    \item \textcolor{TUMRed}{\textbf{Demographic}}: Questions related to the patient's demographic information, such as age and gender.
+    \item \textcolor{TUMRed}{\textbf{Gender-Specific}}: Questions specific to female health issues --- menstrual health --- that play a significant role in the diagnostic process for women.
+    \item \textcolor{TUMRed}{\textbf{General}}: These are common questions applicable to all patients, regardless of gender, and form the core of the diagnostic questionnaire.
+\end{itemize}
+Figure \ref{fig:question_breakdown} shows the breakdown of 17 questions into 4 categories. A tabular version of the 17 questions and their respective answers can be found in Appendix \ref{appendix:questionnaire}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.1]{images/question_breakdown.png}
+    \caption{Breakdown of the 17 Questions into Categories}
+    \label{fig:question_breakdown}
+\end{figure}
+
+\section{Probable Diagnosis and Organ of Origin}
+\lettrine{T}{ }he core function of the application is to map patient responses to probable diagnoses and the organ of origin. The process for determining these outcomes relies on a pre-defined list of possible diagnoses and corresponding organs of origin.
+
+\subsection{Diagnosis Mapping}
+The physicians provided a list of 29 possible diagnoses related to abdominal pain. Each diagnosis is associated with a specific set of responses to the 17 questions from the protocol. To identify a potential diagnosis, the patient's responses are compared against this set of known answer combinations. If the patient's responses align with one of these pre-defined answer sets, a match is established for the probable diagnosis. The Figure \ref{fig:possible_combinations} below depicts the bar chart for the number of possible combinations of answers for the set of 29 probable diagnoses, the top diagnosis can have more than \textcolor{TUMRed}{\textbf{5,000 possible combinations of answers}}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.12]{images/possible_combinations.png}
+    \caption{Possible Combinations of Answers}
+    \label{fig:possible_combinations}
+\end{figure}
+
+\subsection{Organ-of-Origin Identification}
+The application performs the identification of the organ of origin for abdominal pain. This identification is done via the mapping established by linking 29 diagnoses to a set of 19 possible organs of origin. Once a probable diagnosis is identified, the system determines the corresponding organ of origin using a \textcolor{TUMBlue}{deterministic mapping} approach. This allows the system to be interpretable.\\[\baselineskip]
+
+\noindent The relationships between questions, diagnoses, and organs of origin are represented as a graph structure. Each diagnosis is connected to potential answers for the 17 questions, forming distinct paths in the graph. The graphical representation in Figure \ref{fig:graphical_representation} provides a visual explanation of how diagnoses are reached based on patient responses. The pink nodes (center) correspond to the 29 diagnoses, while the yellow nodes represent the 19 possible organs of origin (center below). The nodes representing answers to the 12 original questions are displayed in 12 distinct colors, each corresponding to a specific question. A tabulated mapping of organs of origin to diagnoses can be found in Appendix \ref{appendix:organs_of_origin}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.06]{images/graphical_representation.png}
+    \caption{Graphical Representation of the Mapping between 12 Questions, 29 Probable Diagnoses, and 19 Organs of Origin}
+    \label{fig:graphical_representation}
+\end{figure}
+
+\subsection{Step-by-Step Workflow}
+The workflow of the questionnaire begins with the patient's interaction with the system through a structured questionnaire. As shown in Figure \ref{fig:workflow}, it starts with discriminator questions to identify emergencies; if flagged, the patient is directed to the emergency department. Otherwise, the patient proceeds to demographic questions to gather basic information regarding age and gender, followed by general questions covering universal symptoms and history. Female patients are asked additional questions related to menstrual health before proceeding to the general questions. The patient's responses are then mapped to probable diagnoses and organs of origin, as described in the previous section. The system generates a report based on the patient's responses, which contains all the answers provided by the patient and the results for the physician's reference.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.1]{images/workflow.png}
+    \caption{Workflow of the Patient-Questionnaire Interaction}
+    \label{fig:workflow}
+\end{figure}
+
+\section{Implementation of the Application}
+\lettrine{T}{ }he application was implemented using a comprehensive technology stack. The aim was to create a system that is user-friendly, efficient, auditable, and easily accessible to physicians. The system was designed to be integrated into the hospital's existing infrastructure, allowing for seamless interaction with the application.\\
+
+\noindent The implementation involved the creation of both an Android application and a web application for patient interaction. The initial version Android application was developed using Java and Kotlin in Android Studio, while the web application was built using Streamlit in Python. Streamlit is an open-source Python framework for data scientists and AI/ML engineers to deliver dynamic data apps \cite{streamlit}. 
+
+\subsection{Frontend Development and User Interface}
+The frontend development involved creating a user-friendly interface for patient interaction. The Android application was designed to be intuitive and easy to navigate, with a clean and simple layout. The web application was developed to provide a seamless experience for patients interacting with the system on a desktop or mobile device. The frontend was designed to be responsive, ensuring that the system is accessible across a wide range of devices.\\
+
+\noindent The initial prototype of both the Android application was designed using Figma, a web-based design tool. Both applications were designed to follow the workflow defined in Figure \ref{fig:workflow}. Both prototypes followed a click-through option for patient interaction, where the patient could navigate through the questionnaire by answering each question sequentially. The responses were stored in the system and used to generate the probable diagnosis and organ of origin. As seen in \cite{eich1999internet}, even a simple interface with a well-defined workflow can be effective and have a significant impact on user-friendliness.\\
+
+\noindent \textcolor{TUMRed}{\textbf{Android Application}}: Four screenshots of the Android application are shown in the Figure \ref{fig:android_app_screenshots}. The screenshots show the question and their respective options.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.09]{images/android_app_screenshots.png}
+    \caption{Screenshots of the Android Application.}
+    \label{fig:android_app_screenshots}
+\end{figure}
+
+\noindent \textcolor{TUMRed}{\textbf{Web Application}}: The screenshots of the web application are shown in the Figure \ref{fig:web_app_screenshots}. The screenshots for the same questions and their respective options as in the Android application are shown.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.045]{images/web_app_screenshots.png}
+    \caption{Screenshots of the Web Application.}
+    \label{fig:web_app_screenshots}
+\end{figure}
+
+\noindent \textcolor{TUMRed}{\textbf{Result Page}}: The result page of the web application is shown in the Figure \ref{fig:results_page}. The result page shows two screenshots, one with a successful probable and organ of origin diagnosis, and the other with a prompt to visit emergency department, triggered by the presence of danger signs in discriminator section of the questionnaire.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.07]{images/results_page.png}
+    \caption{Result Page of the Web Application.}
+    \label{fig:results_page}
+\end{figure}
+
+% found on our website \href{https://kutumlab.github.io/abdominal-pain-cdss/#mobile-application}{here}. Another demonstration of the web application for a successful probable diagnosis and organ of origin can be found \href{https://kutumlab.github.io/abdominal-pain-cdss/#web-application-diagnosis}{here}. The demonstration of web application for an emergency department visit can be found \href{https://kutumlab.github.io/abdominal-pain-cdss/#web-application-emergency-visit}{here}. The screenshots and complete URLs of the same are shown in the Appendix \ref{appendix:frontend_screenshots}. A future version of the CDSS will include the interface for voice-based interaction
+
+\subsection{Backend Development}
+The backend of the application has two major components: the data dictionary and the conversational agent. The two components work together via a Python script. The entire backend is containerized using Docker for easy deployment and management.
+
+\subsubsection{Data Dictionary}
+Multiple data dictionaries contain the mapping between patient responses and probable diagnoses and organs of origin. These dictionaries are used to identify the probable diagnosis and organ of origin based on the patient's responses. Dictionaries are stored in JSON format for easy access and retrieval.
+\subsubsection{Conversational Agent}
+The conversational agent is responsible for interacting with the patient and guiding them through the questionnaire. The agent asks questions based on the patient's responses and stores the answers for further processing. The design of the conversational agent is shown in Figure \ref{fig:conversational_agent}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.15]{images/conversational_agent.png}
+    \caption{Creation of Conversational Agent}
+    \label{fig:conversational_agent}
+\end{figure}
+
+\noindent The conversational agent is created using the open source Large Language Models (osLLMs) like Mistral (\texttt{Mistral 7B})\cite{jiang2023mistral}, Llama (\texttt{Llama 3.1 8B}) \cite{dubey2024llama}, Gemma (\texttt{Gemma 2 9B}) \cite{team2024gemma}, and others. The models were selected based on their performance and parameter size. From the above-mentioned models, \texttt{Gemma 2 9B} was selected for the conversational agent based on its performance and parameter size. Prompt engineering \cite{liu2023pre} is used to provide the conversational agent with the necessary context to extract the patient's responses as accurately as possible after asking each question with its respective answer choices. \\[\baselineskip]
+
+\noindent The conversational agent is hosted and managed by using Ollama \cite{ollama}, an open-source platform that allows for the deployment and management of large language models. Ollama provides an efficient environment for running these models locally, ensuring privacy and faster processing. The model is queried with the patient's responses using a REST API. Nvidia RTX A5000 GPU were used for loading the model and processing the patient's responses.
+
+\subsection{System Design}
+The system design of the application is shown in Figure \ref{fig:high_level_design}. The system consists of two main components: the frontend and the backend. The frontend includes the Android and web applications, while the backend includes the data dictionary and the conversational agent. The containerized backend can be deployed on a local server or cloud platform such as AWS or Google Cloud.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.19]{images/high_level_design.png}
+    \caption{High-Level Design of the application}
+    \label{fig:high_level_design}
+\end{figure}
+
+\subsection{Augmented Workflow}
+The high-level augmentation of application into the existing workflow of evaluation of abdominal pain is shown in Figure \ref{fig:abdominal_regions} (B), depicted by the dotted box. A more detailed view of the augmented workflow is shown in the Figure \ref{fig:aug_workflow}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.12]{images/aug_workflow.png}
+    \caption{Application Augmented Workflow for Abdominal Pain Evaluation}
+    \label{fig:aug_workflow}
+\end{figure}
+
+\noindent The patient interacts with the application through the Android or web application, answering a set of structured questions. The responses are processed by the conversational agent, which identifies the probable diagnosis and organ of origin based on the patient's responses. The system generates a report containing the patient's responses, probable diagnosis, and organ of origin. The report is then reviewed by the physician, who uses the information to further the diagnostic process. The auditing of responses and the probable diagnosis is done by the physician to ensure the accuracy of the system. In case of any discrepancies, the physician can ask the patient for additional information to refine the diagnosis.
+
+\subsection{Challenges \& Mitigations}
+\lettrine{O}{ }ne of the challenges of any AI-based application is the issue of explainability. The compartmentalization of the system ensures that the components can be updated independently without affecting the overall functionality of the system. It also ensures that the system can be easily audited and the output of each component can be tracked providing transparency, explainability, and interpretability. In case of any conflicting diagnosis, the output of the system can be easily traced back to the patient's responses and the mapping between the responses and the probable diagnosis.
+
+% \noindent Another challenge is the issue of privacy and security. The system is designed to be deployed on a local server or cloud platform, ensuring that patient data is stored securely and complies with all relevant data protection regulations. The open-source nature of the system allows for easy customization and mitigates the issue of privacy and security. The system can be easily adapted to meet the specific requirements of different departments or hospitals.\\[\baselineskip]
+
+\section{Evaluation}
+\lettrine{C}{ }urrently, the application is in the final stages of development and is yet to be deployed for clinical evaluation. The evaluation process will involve a beta testing with a small group of physicians. The physicians will interact with the system and provide feedback on the system's usability, experience, and overall performance. The feedback will be used to refine the system further before a full-scale deployment. A comprehensive evaluation will be conducted to assess the impact of the application on the diagnostic process for abdominal pain. The evaluation of impact will be performed by comparing no system (baseline), option and click based system with help of a healthcare staff, and a fully conversational system in OPD setting.\\[\baselineskip]

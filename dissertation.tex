@@ -39,8 +39,8 @@
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
-\fancyhead[L]{Ahuja, Gautam} % title on left
-\fancyhead[R]{\rightmark} % section on right
+\fancyhead[RO]{\rightmark} % section on right on odd pages
+\fancyhead[LE]{\nouppercase{\leftmark}} % section on left on even pages
 \fancyfoot[C]{\thepage} % page number in center
 \renewcommand{\headrulewidth}{0.4pt}
 
@@ -380,9 +380,9 @@
 \input{src/methodology.tex}
 
 %-------------------------------------------------------------------------------
-\chapter{Results \& Discussions}
+\chapter{Work Done, Results \& Discussions}
 \label{chap:results}
-\input{src/results.tex}
+\input{src/results_discussions.tex}
 
 
 %-------------------------------------------------------------------------------
